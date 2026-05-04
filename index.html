@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庞筱妍 - 简历投递追踪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            color: #888;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 32px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            min-width: 120px;
+        }
+        .stat-num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .company-section {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .company-header {
+            background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+            padding: 16px 24px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+        .company-badge {
+            font-size: 12px;
+            padding: 2px 10px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 12px;
+        }
+        .job-list {
+            padding: 8px 0;
+        }
+        .job-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 24px;
+            border-bottom: 1px solid #f5f5f5;
+            transition: background 0.2s;
+        }
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        .job-item:hover {
+            background: #f8f9fb;
+        }
+        .job-info {
+            flex: 1;
+        }
+        .job-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #333;
+        }
+        .job-meta {
+            font-size: 13px;
+            color: #999;
+            margin-top: 2px;
+        }
+        .job-status {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-right: 12px;
+            white-space: nowrap;
+        }
+        .status-sent {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .status-interview {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        .status-offer {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        .status-rejected {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        .job-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .job-link:hover {
+            opacity: 0.9;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #bbb;
+            font-size: 13px;
+        }
+        @media (max-width: 600px) {
+            .stats { gap: 16px; }
+            .stat-card { padding: 16px 20px; min-width: auto; }
+            .job-item { flex-wrap: wrap; }
+            .job-status { margin-bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 简历投递追踪</h1>
+            <p>庞筱妍 | 2027 届硕士 | 数据科学 - 金融科技</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-num" id="stat-total">1</div>
+                <div class="stat-label">已投递</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-interview">0</div>
+                <div class="stat-label">面试中</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-offer">0</div>
+                <div class="stat-label">已offer</div>
+            </div>
+        </div>
+
+        <!-- 点点互动 -->
+        <div class="company-section">
+            <div class="company-header">
+                <span class="company-name">🎮 点点互动 (Century Game)</span>
+                <span class="company-badge">1 个岗位</span>
+            </div>
+            <div class="job-list">
+                <div class="job-item">
+                    <div class="job-info">
+                        <div class="job-title">AI 视频生成/剪辑实习生</div>
+                        <div class="job-meta">投递时间：2026-05-04 | 领域：AIGC / 视频制作</div>
+                    </div>
+                    <span class="job-status status-sent">已投递</span>
+                    <a class="job-link" href="./century-game/ai-video-intern/" target="_blank">查看简历 →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 占位：未来公司 -->
+        <!--
+        <div class="company-section">
+            <div class="company-header">
+                <span class="company-name">🏢 公司名称</span>
+                <span class="company-badge">N 个岗位</span>
+            </div>
+            <div class="job-list">
+                <div class="job-item">
+                    <div class="job-info">
+                        <div class="job-title">岗位名称</div>
+                        <div class="job-meta">投递时间：YYYY-MM-DD | 领域：xxx</div>
+                    </div>
+                    <span class="job-status status-sent">已投递</span>
+                    <a class="job-link" href="./公司名/岗位名/" target="_blank">查看简历 →</a>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div class="footer">
+            <p>💡 提示：每次新增简历时，复制上面的 company-section 代码块，修改公司名和岗位信息即可</p>
+        </div>
+    </div>
+</body>
+</html>
