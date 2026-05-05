@@ -6,7 +6,7 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/intern/century-game/ai-video-intern">
+    <BrowserRouter basename="/intern/century-game/ai-video">
       <App />
     </BrowserRouter>
   </StrictMode>,
