@@ -20,7 +20,7 @@ const defaultItems: PortfolioItem[] = [
     category: 'AIGC',
     description: '融合家养宠物与新年元素，使用 Kimi、Doubao、Sora 等工具完成。上线微信后综合曝光 29 万+次。',
     type: 'image',
-    url: '',
+    url: '../../../assets/images/AIGC红包封面.jpg',
   },
   {
     id: '2',
@@ -54,14 +54,7 @@ const defaultItems: PortfolioItem[] = [
     type: 'video',
     url: '',
   },
-  {
-    id: '6',
-    title: 'Kimi CLI 学术研究',
-    category: '编程',
-    description: '使用 Kimi CLI 完成 CUDA 向 MPS 的代码迁移，复现论文并构建 Lasso 模型。',
-    type: 'image',
-    url: '',
-  },
+
 ];
 
 export default function Portfolio() {
@@ -71,7 +64,7 @@ export default function Portfolio() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadingForId, setUploadingForId] = useState<string | null>(null);
 
-  const categories = ['全部', 'AIGC', '视频广告', '平面设计', '摄像', '直播导演', '编程'];
+  const categories = ['全部', 'AIGC', '视频广告', '平面设计', '摄像', '直播导演'];
 
   const filteredItems = filter === '全部' ? items : items.filter((item) => item.category === filter);
 
@@ -118,9 +111,7 @@ export default function Portfolio() {
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[var(--morandi-text)] leading-tight">
             精选作品
           </h2>
-          <p className="font-body text-base text-[var(--morandi-text-secondary)] mt-4 max-w-xl mx-auto">
-            点击卡片可上传对应作品的图片或视频，随时更新您的作品集
-          </p>
+
         </motion.div>
 
         {/* Filter Tabs */}
@@ -182,7 +173,7 @@ export default function Portfolio() {
                       <img
                         src={item.url}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain bg-[var(--morandi-bg-secondary)]"
                       />
                     )}
                     {/* Remove Button */}
