@@ -113,6 +113,15 @@
       color: var(--gold);
       border-bottom-color: var(--gold);
     }
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 30px rgba(244,208,63,0.25);
+      margin-bottom: 20px;
+    }
 
     /* Education */
     .edu-card {
@@ -190,8 +199,9 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1 class="reveal">庞筱妍</h1>
-      <div class="divider reveal reveal-delay-1"></div>
+      <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar reveal">
+      <h1 class="reveal reveal-delay-1">庞筱妍</h1>
+      <div class="divider reveal reveal-delay-2"></div>
       <p class="email reveal reveal-delay-2">
         <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
       </p>
