@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>庞筱妍</title>
-  <link rel="icon" type="image/png" href="./assets/images/zhuzhu-icon.png">
+  <link rel="icon" type="image/png" href="./assets/images/favicon-circle.png">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -48,15 +48,8 @@
     .section-header {
       margin-bottom: 48px;
     }
-    .section-header .label {
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
     .section-header .title {
-      font-size: 28px;
+      font-size: 36px;
       font-weight: 600;
       line-height: 1.2;
       color: var(--black);
@@ -97,7 +90,14 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-profile {
+      display: flex;
+      align-items: center;
+      gap: 28px;
     }
     .hero-avatar {
       width: 100px;
@@ -105,7 +105,13 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--border);
-      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+    .hero-text {
+      text-align: left;
+    }
+    .hero-text h1 {
+      margin-bottom: 4px;
     }
     .hero h1 {
       font-size: clamp(40px, 6vw, 64px);
@@ -306,11 +312,15 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner reveal">
-      <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar">
-      <h1>庞筱妍</h1>
-      <p class="email">
-        <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
-      </p>
+      <div class="hero-profile">
+        <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar">
+        <div class="hero-text">
+          <h1>庞筱妍</h1>
+          <p class="email">
+            <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -318,8 +328,7 @@
   <section class="white">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">教育经历</div>
-        <div class="title">学历</div>
+        <div class="title">教育经历</div>
       </div>
       <div class="edu-card reveal delay-1">
         <div>
@@ -342,8 +351,7 @@
   <section>
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">掌握的技能</div>
-        <div class="title">工具与能力</div>
+        <div class="title">掌握的技能</div>
       </div>
       <div class="reveal delay-1">
         <div class="skill-row">
@@ -382,8 +390,7 @@
   <section class="white">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">工作经历</div>
-        <div class="title">学生工作与实践</div>
+        <div class="title">工作经历</div>
       </div>
       <div class="timeline-wrap reveal delay-1">
         <div class="timeline-line"></div>
@@ -425,8 +432,7 @@
   <section>
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">作品集</div>
-        <div class="title">代表作品</div>
+        <div class="title">作品集</div>
       </div>
       <div class="portfolio-grid reveal delay-1">
         <div class="portfolio-card">
