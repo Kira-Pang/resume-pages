@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { X, Image as ImageIcon, Film } from 'lucide-react';
 
@@ -85,13 +85,7 @@ export default function Portfolio() {
     [uploadingForId]
   );
 
-  const handleRemoveFile = useCallback((itemId: string) => {
-    setItems((prev) =>
-      prev.map((item) =>
-        item.id === itemId ? { ...item, url: '', file: undefined } : item
-      )
-    );
-  }, []);
+  const [lightbox, setLightbox] = useState<{ url: string; title: string } | null>(null);
 
 
 
@@ -173,16 +167,10 @@ export default function Portfolio() {
                       <img
                         src={item.url}
                         alt={item.title}
-                        className="w-full h-full object-contain bg-[var(--morandi-bg-secondary)]"
+                        className="w-full h-full object-contain bg-[var(--morandi-bg-secondary)] cursor-zoom-in"
+                        onClick={() => setLightbox({ url: item.url, title: item.title })}
                       />
                     )}
-                    {/* Remove Button */}
-                    <button
-                      onClick={() => handleRemoveFile(item.id)}
-                      className="absolute top-3 right-3 w-8 h-8 bg-[var(--morandi-bg)]/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[var(--morandi-bg)]"
-                    >
-                      <X className="w-4 h-4 text-[var(--morandi-text)]" />
-                    </button>
                   </>
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--morandi-text-secondary)]">
@@ -218,6 +206,37 @@ export default function Portfolio() {
 
 
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 md:p-12"
+            onClick={() => setLightbox(null)}
+          >
+            <button
+              onClick={() => setLightbox(null)}
+              className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              src={lightbox.url}
+              alt={lightbox.title}
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
