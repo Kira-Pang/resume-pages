@@ -4,193 +4,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>庞筱妍</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-deep: #0B1026;
-      --bg-mid: #1B1F3B;
-      --bg-card: rgba(20, 25, 55, 0.65);
-      --gold: #F4D03F;
-      --gold-soft: #D4A373;
-      --cream: #E8E8E8;
-      --cream-dim: #B0B8C8;
-      --accent: #5DADE2;
-      --border: rgba(255,255,255,0.08);
-      --font-display: 'Noto Serif SC', 'Songti SC', serif;
-      --font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --bg: #FFFFFF;
+      --bg-gray: #F5F5F7;
+      --text: #1D1D1F;
+      --text-secondary: #86868B;
+      --text-tertiary: #6E6E73;
+      --blue: #0071E3;
+      --blue-hover: #0077ED;
+      --border: #D2D2D7;
+      --radius: 18px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-body);
-      color: var(--cream);
-      line-height: 1.8;
-      font-size: 15px;
-      background: var(--bg-deep);
-      min-height: 100vh;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Starry background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: url('./assets/images/starry-bg.jpg') center/cover no-repeat;
-      opacity: 0.35;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(11,16,38,0.7) 0%, rgba(11,16,38,0.85) 50%, rgba(11,16,38,0.95) 100%);
-    }
-
-    h1, h2, h3, h4 { font-family: var(--font-display); }
-
+    /* Reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
 
-    section { padding: 80px 24px; position: relative; }
-    .container { max-width: 800px; margin: 0 auto; }
-    .section-label {
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    /* Glass card */
-    .glass {
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
+    section { padding: 100px 24px; }
+    .container { max-width: 720px; margin: 0 auto; }
 
     /* Hero */
     .hero {
       padding: 140px 24px 80px;
       text-align: center;
-      position: relative;
     }
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
       margin-bottom: 16px;
-      color: var(--gold);
-      text-shadow: 0 0 40px rgba(244,208,63,0.2);
-    }
-    .hero .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 20px;
-    }
-    .hero .email {
-      font-size: 15px;
-      color: var(--cream-dim);
-    }
-    .hero .email a {
-      color: var(--gold-soft);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(212,163,115,0.3);
-      transition: all 0.3s;
-    }
-    .hero .email a:hover {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
     }
     .hero-avatar {
-      width: 100px;
-      height: 100px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--gold);
-      box-shadow: 0 0 30px rgba(244,208,63,0.25);
-      flex-shrink: 0;
+      border: none;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+    .hero-email {
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+    .hero-email a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .hero-email a:hover { text-decoration: underline; }
+
+    /* Label */
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
     }
 
     /* Education */
     .edu-card {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       padding: 20px 24px;
+      background: var(--bg-gray);
+      border-radius: var(--radius);
       margin-bottom: 12px;
     }
-    .edu-card h3 { font-size: 16px; margin-bottom: 4px; color: var(--cream); }
-    .edu-card p { font-size: 13px; color: var(--cream-dim); }
-    .edu-card .time { font-size: 13px; color: var(--gold-soft); white-space: nowrap; margin-left: 16px; }
+    .edu-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .edu-card p { font-size: 15px; color: var(--text-secondary); }
+    .edu-card .time { font-size: 15px; color: var(--text-tertiary); white-space: nowrap; margin-left: 20px; }
 
-    /* Table */
-    .data-table { width: 100%; border-collapse: collapse; }
-    .data-table tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
-    .data-table td { padding: 16px; font-size: 14px; vertical-align: top; }
-    .data-table td:first-child { width: 220px; font-weight: 500; color: var(--gold); }
-    .data-table td:last-child { color: var(--cream-dim); line-height: 1.7; }
-
-    /* Experience */
-    .exp-item { margin-bottom: 32px; }
-    .exp-item:last-child { margin-bottom: 0; }
-    .exp-item .period { font-size: 12px; color: var(--gold-soft); letter-spacing: 0.05em; margin-bottom: 4px; }
-    .exp-item h4 { font-size: 17px; margin-bottom: 2px; color: var(--cream); }
-    .exp-item .role { font-size: 13px; color: var(--cream-dim); margin-bottom: 10px; }
-    .exp-item ul { list-style: none; padding: 0; }
-    .exp-item li {
-      font-size: 14px; color: var(--cream-dim);
-      padding-left: 16px; position: relative; margin-bottom: 6px; line-height: 1.7;
-    }
-    .exp-item li::before {
-      content: '';
-      position: absolute; left: 0; top: 10px;
-      width: 5px; height: 5px;
-      background: var(--gold);
-      border-radius: 50%;
-      box-shadow: 0 0 6px rgba(244,208,63,0.4);
-    }
-
-    /* Portfolio */
-    .portfolio-table .portfolio-row {
-      display: flex; gap: 16px;
+    /* Skills */
+    .skill-row {
+      display: flex;
+      gap: 20px;
       padding: 18px 0;
       border-bottom: 1px solid var(--border);
     }
-    .portfolio-table .portfolio-row:first-child { padding-top: 0; }
-    .portfolio-table .portfolio-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .portfolio-row .name { width: 180px; flex-shrink: 0; font-weight: 500; font-size: 14px; color: var(--gold); }
-    .portfolio-row .desc { color: var(--cream-dim); font-size: 14px; line-height: 1.7; }
-    .portfolio-row video {
-      width: 100%; max-width: 520px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin-top: 4px;
+    .skill-row:last-child { border-bottom: none; }
+    .skill-name {
+      width: 240px;
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .skill-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Experience */
+    .exp-item { margin-bottom: 40px; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-period {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .exp-item h4 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+    .exp-role { font-size: 15px; color: var(--text-secondary); margin-bottom: 12px; }
+    .exp-item ul { list-style: none; padding: 0; }
+    .exp-item li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .exp-item li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    /* Portfolio */
+    .portfolio-row {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .portfolio-row:last-child { border-bottom: none; }
+    .portfolio-name {
+      width: 180px;
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .portfolio-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .portfolio-desc video {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: var(--shadow);
     }
 
     /* Footer */
-    footer { padding: 48px 24px; text-align: center; border-top: 1px solid var(--border); }
-    footer p { font-size: 13px; color: var(--cream-dim); }
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    footer p { font-size: 14px; color: var(--text-secondary); }
 
+    /* Responsive */
     @media (max-width: 640px) {
-      .hero h1 { font-size: 38px; }
-      .edu-card { flex-direction: column; }
-      .edu-card .time { margin-left: 0; margin-top: 6px; }
-      .data-table td:first-child { width: auto; display: block; padding-bottom: 4px; color: var(--gold); }
-      .data-table td:last-child { display: block; padding-top: 0; }
+      .hero h1 { font-size: 36px; }
+      .hero-inner { gap: 16px; }
+      section { padding: 64px 24px; }
+      .edu-card { flex-direction: column; align-items: flex-start; }
+      .edu-card .time { margin-left: 0; margin-top: 8px; }
+      .skill-row { flex-direction: column; gap: 6px; }
+      .skill-name { width: auto; }
       .portfolio-row { flex-direction: column; gap: 6px; }
-      .portfolio-row .name { width: auto; }
+      .portfolio-name { width: auto; }
     }
   </style>
 </head>
@@ -199,29 +212,28 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="reveal" style="display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap;">
+      <div class="hero-inner reveal">
         <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar">
-        <h1 style="margin: 0;">庞筱妍</h1>
+        <h1>庞筱妍</h1>
       </div>
-      <div class="divider reveal reveal-delay-1"></div>
-      <p class="email reveal reveal-delay-2">
+      <p class="hero-email reveal delay-1">
         <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
       </p>
     </div>
   </section>
 
   <!-- Education -->
-  <section>
+  <section style="background: var(--bg-gray);">
     <div class="container">
-      <div class="section-label reveal">教育经历</div>
-      <div class="glass edu-card reveal reveal-delay-2">
+      <div class="label reveal">教育经历</div>
+      <div class="edu-card reveal delay-1">
         <div>
           <h3>澳门大学（QS 285）</h3>
           <p>硕士 · 数据科学 - 金融科技</p>
         </div>
         <span class="time">2025.9 - 2027.6</span>
       </div>
-      <div class="glass edu-card reveal reveal-delay-3">
+      <div class="edu-card reveal delay-2">
         <div>
           <h3>北京交通大学（211）</h3>
           <p>本科 · 光电信息科学与工程</p>
@@ -234,55 +246,73 @@
   <!-- Skills -->
   <section>
     <div class="container">
-      <div class="section-label reveal">掌握的技能</div>
-      <div class="glass">
-        <table class="data-table reveal reveal-delay-2">
-          <tbody>
-            <tr><td>Kimi / Doubao / Sora / Nano Banana</td><td>AIGC 内容生成、prompt engineering、多工具协同 workflow 搭建，红包封面项目微信曝光 29 万+</td></tr>
-            <tr><td>编导与拍摄</td><td>视频脚本撰写、分镜设计、镜头语言（摇移镜头、推镜头）、直播全流程统筹与导播切换、多岗位人员调度</td></tr>
-            <tr><td>Python</td><td>数据处理、SQLite 数据库设计与使用、PyTorch 模型训练、CUDA 向 MPS 适配迁移</td></tr>
-            <tr><td>剪映 / Premiere Pro</td><td>视频剪辑、调色、转场、字幕与音效添加</td></tr>
-            <tr><td>Lightroom</td><td>批量修改图片风格、色彩调整</td></tr>
-            <tr><td>Photoshop</td><td>基础图像修图、瑕疵修复</td></tr>
-            <tr><td>秀米 / 创客贴</td><td>公众号图文排版、海报制作</td></tr>
-          </tbody>
-        </table>
+      <div class="label reveal">掌握的技能</div>
+      <div class="reveal delay-1">
+        <div class="skill-row">
+          <div class="skill-name">Kimi / Doubao / Sora / Nano Banana</div>
+          <div class="skill-desc">AIGC 内容生成、prompt engineering、多工具协同 workflow 搭建，红包封面项目微信曝光 29 万+</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">编导与拍摄</div>
+          <div class="skill-desc">视频脚本撰写、分镜设计、镜头语言（摇移镜头、推镜头）、直播全流程统筹与导播切换、多岗位人员调度</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Python</div>
+          <div class="skill-desc">数据处理、SQLite 数据库设计与使用、PyTorch 模型训练、CUDA 向 MPS 适配迁移</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">剪映 / Premiere Pro</div>
+          <div class="skill-desc">视频剪辑、调色、转场、字幕与音效添加</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Lightroom</div>
+          <div class="skill-desc">批量修改图片风格、色彩调整</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Photoshop</div>
+          <div class="skill-desc">基础图像修图、瑕疵修复</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">秀米 / 创客贴</div>
+          <div class="skill-desc">公众号图文排版、海报制作</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section>
+  <section style="background: var(--bg-gray);">
     <div class="container">
-      <div class="section-label reveal">工作经历</div>
-      <div class="glass" style="padding: 32px;">
-        <div class="exp-item reveal reveal-delay-1">
-          <div class="period">2023.9 - 2025.6</div>
-          <h4>北京交通大学党委宣传部 — 学生电视台台长</h4>
-          <ul>
-            <li>"一带一路"十周年主题 MV《万里当歌》摄像与现场协调总负责人</li>
-            <li>组织策划校内特别栏目《主播说交大》，完成视频号风格定位与制作流程设计</li>
-            <li>沟通协调学校对接多家国级媒体的对外拍摄活动</li>
-          </ul>
-        </div>
-        <div class="exp-item reveal reveal-delay-2">
-          <div class="period">2024.7 - 2025.12</div>
-          <h4>孔子研究院《彝伦讲台》— 直播总导演</h4>
-          <ul>
-            <li>统筹直播全流程，负责直播脚本与流程设计、现场机位调度、导播切换节奏把控</li>
-            <li>管理直播设备（摄像机、导播台、音频、推流），协调摄像、导播、灯光、后勤等岗位人员</li>
-            <li>制定直播应急预案，处理突发技术故障与流程问题，保障直播顺利进行</li>
-          </ul>
-        </div>
-        <div class="exp-item reveal reveal-delay-3">
-          <div class="period">2023.9 - 2024.6</div>
-          <h4>北京交通大学物理工程学院团委 — 宣传部副部长</h4>
-          <ul>
-            <li>负责学院公众号"悟理功成"的运营管理</li>
-            <li>定期进行宣传与沟通技能培训</li>
-            <li>组织开展每月例会，进行阶段性工作总结与未来计划制定</li>
-          </ul>
-        </div>
+      <div class="label reveal">工作经历</div>
+      <div class="exp-item reveal delay-1">
+        <div class="exp-period">2023.9 - 2025.6</div>
+        <h4>北京交通大学党委宣传部 — 学生电视台台长</h4>
+        <div class="exp-role">摄像与现场协调总负责人</div>
+        <ul>
+          <li>"一带一路"十周年主题 MV《万里当歌》摄像与现场协调总负责人</li>
+          <li>组织策划校内特别栏目《主播说交大》，完成视频号风格定位与制作流程设计</li>
+          <li>沟通协调学校对接多家国级媒体的对外拍摄活动</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal delay-2">
+        <div class="exp-period">2024.7 - 2025.12</div>
+        <h4>孔子研究院《彝伦讲台》— 直播总导演</h4>
+        <div class="exp-role">直播全流程统筹</div>
+        <ul>
+          <li>统筹直播全流程，负责直播脚本与流程设计、现场机位调度、导播切换节奏把控</li>
+          <li>管理直播设备（摄像机、导播台、音频、推流），协调摄像、导播、灯光、后勤等岗位人员</li>
+          <li>制定直播应急预案，处理突发技术故障与流程问题，保障直播顺利进行</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal delay-3">
+        <div class="exp-period">2023.9 - 2024.6</div>
+        <h4>北京交通大学物理工程学院团委 — 宣传部副部长</h4>
+        <div class="exp-role">公众号运营与培训</div>
+        <ul>
+          <li>负责学院公众号"悟理功成"的运营管理</li>
+          <li>定期进行宣传与沟通技能培训</li>
+          <li>组织开展每月例会，进行阶段性工作总结与未来计划制定</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -290,40 +320,37 @@
   <!-- Portfolio -->
   <section>
     <div class="container">
-      <div class="section-label reveal">作品集</div>
-      <div class="glass" style="padding: 32px;">
-        <div class="portfolio-table reveal reveal-delay-2">
-          <div class="portfolio-row">
-            <div class="name">AI 红包封面</div>
-            <div class="desc">使用 Kimi + Doubao + Sora 多工具协同生成，融合家养宠物与新年元素，上线微信后综合曝光 29 万+次</div>
+      <div class="label reveal">作品集</div>
+      <div class="reveal delay-1">
+        <div class="portfolio-row">
+          <div class="portfolio-name">AI 红包封面</div>
+          <div class="portfolio-desc">使用 Kimi + Doubao + Sora 多工具协同生成，融合家养宠物与新年元素，上线微信后综合曝光 29 万+次</div>
+        </div>
+        <div class="portfolio-row">
+          <div class="portfolio-name">亿生帮商业视频广告</div>
+          <div class="portfolio-desc">
+            独立完成从创意策划到交付的全流程，古典写意风格，获得甲方满意肯定
+            <video controls>
+              <source src="./assets/videos/亿生帮广告视频.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
           </div>
-          <div class="portfolio-row">
-            <div class="name">亿生帮商业视频广告</div>
-            <div class="desc">
-              独立完成从创意策划到交付的全流程，古典写意风格，获得甲方满意肯定
-              <br>
-              <video controls poster="">
-                <source src="./assets/videos/亿生帮广告视频.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-              </video>
-            </div>
-          </div>
-          <div class="portfolio-row">
-            <div class="name">《万里当歌》MV</div>
-            <div class="desc">"一带一路"十周年主题 MV，担任摄像与现场协调总负责人</div>
-          </div>
-          <div class="portfolio-row">
-            <div class="name">《彝伦讲台》直播</div>
-            <div class="desc">孔子研究院直播总导演，统筹直播全流程、机位调度与导播切换，管理直播设备并协调多岗位人员，制定应急预案保障直播顺利进行</div>
-          </div>
-          <div class="portfolio-row">
-            <div class="name">Vibe Coding</div>
-            <div class="desc">使用 Kimi CLI 完成 CUDA 向 MPS 代码迁移（差异 &lt; 1%），复现论文并构建 Lasso 模型</div>
-          </div>
-          <div class="portfolio-row">
-            <div class="name">学院公众号宣传物料</div>
-            <div class="desc">使用秀米完成公众号图文排版，使用创客贴制作宣传海报</div>
-          </div>
+        </div>
+        <div class="portfolio-row">
+          <div class="portfolio-name">《万里当歌》MV</div>
+          <div class="portfolio-desc">"一带一路"十周年主题 MV，担任摄像与现场协调总负责人</div>
+        </div>
+        <div class="portfolio-row">
+          <div class="portfolio-name">《彝伦讲台》直播</div>
+          <div class="portfolio-desc">孔子研究院直播总导演，统筹直播全流程、机位调度与导播切换，管理直播设备并协调多岗位人员，制定应急预案保障直播顺利进行</div>
+        </div>
+        <div class="portfolio-row">
+          <div class="portfolio-name">Vibe Coding</div>
+          <div class="portfolio-desc">使用 Kimi CLI 完成 CUDA 向 MPS 代码迁移（差异 &lt; 1%），复现论文并构建 Lasso 模型</div>
+        </div>
+        <div class="portfolio-row">
+          <div class="portfolio-name">学院公众号宣传物料</div>
+          <div class="portfolio-desc">使用秀米完成公众号图文排版，使用创客贴制作宣传海报</div>
         </div>
       </div>
     </div>
