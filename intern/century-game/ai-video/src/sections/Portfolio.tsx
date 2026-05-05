@@ -75,14 +75,6 @@ export default function Portfolio() {
 
   const filteredItems = filter === '全部' ? items : items.filter((item) => item.category === filter);
 
-  const handleFileSelect = useCallback(
-    (itemId: string) => {
-      setUploadingForId(itemId);
-      fileInputRef.current?.click();
-    },
-    []
-  );
-
   const handleFileChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
@@ -202,19 +194,16 @@ export default function Portfolio() {
                     </button>
                   </>
                 ) : (
-                  <button
-                    onClick={() => handleFileSelect(item.id)}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--morandi-text-secondary)] hover:text-[var(--morandi-accent)] transition-colors duration-300"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-[var(--morandi-bg)] border border-[var(--morandi-border)] flex items-center justify-center group-hover:border-[var(--morandi-accent)] group-hover:bg-[var(--morandi-accent-light)] transition-all duration-300">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--morandi-text-secondary)]">
+                    <div className="w-14 h-14 rounded-full bg-[var(--morandi-bg)] border border-[var(--morandi-border)] flex items-center justify-center">
                       {item.type === 'video' ? (
                         <Film className="w-6 h-6" />
                       ) : (
                         <ImageIcon className="w-6 h-6" />
                       )}
                     </div>
-                    <span className="text-sm font-body">点击上传作品</span>
-                  </button>
+                    <span className="text-sm font-body">暂无预览</span>
+                  </div>
                 )}
               </div>
 

@@ -43,7 +43,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.label}
