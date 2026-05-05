@@ -235,62 +235,91 @@
     }
 
     /* === Experience === */
-    .exp-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-bottom: 120px;
+    /* === Horizontal Timeline === */
+    .timeline-wrap {
+      position: relative;
+      padding-top: 40px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .exp-item:last-child { margin-bottom: 0; }
-    .exp-item.reverse { direction: rtl; }
-    .exp-item.reverse > * { direction: ltr; }
-    .exp-content .period {
-      font-size: 14px;
+    .timeline-wrap::-webkit-scrollbar { display: none; }
+    .timeline-line {
+      position: absolute;
+      top: 47px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #D2D2D7 10%, #D2D2D7 90%, transparent 100%);
+    }
+    .timeline-items {
+      display: flex;
+      gap: 24px;
+      min-width: 900px;
+      padding: 0 40px;
+    }
+    .timeline-item {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+      padding-top: 32px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: #FFFFFF;
+      border: 3px solid #2997FF;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .timeline-card {
+      background: #1D1D1F;
+      border-radius: 24px;
+      padding: 32px;
+    }
+    .timeline-card .period {
+      font-size: 13px;
       font-weight: 600;
-      color: #86868B;
+      color: #2997FF;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 12px;
     }
-    .exp-content h3 {
-      font-size: 32px;
+    .timeline-card h3 {
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.015em;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      color: #F5F5F7;
     }
-    .exp-content .role {
-      font-size: 19px;
+    .timeline-card .role {
+      font-size: 16px;
       color: #86868B;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-    .exp-content ul {
+    .timeline-card ul {
       list-style: none;
     }
-    .exp-content li {
-      font-size: 17px;
+    .timeline-card li {
+      font-size: 15px;
       color: #86868B;
-      padding-left: 20px;
+      padding-left: 18px;
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: 1.5;
     }
-    .exp-content li::before {
+    .timeline-card li::before {
       content: '';
       position: absolute;
-      left: 0; top: 10px;
-      width: 6px; height: 6px;
+      left: 0; top: 9px;
+      width: 5px; height: 5px;
       background: #2997FF;
       border-radius: 50%;
-    }
-    .exp-visual {
-      background: linear-gradient(135deg, #1D1D1F 0%, #2D2D2F 100%);
-      border-radius: 32px;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
     }
 
     /* === Portfolio === */
@@ -369,8 +398,11 @@
       .stats-grid { grid-template-columns: 1fr; gap: 32px; }
       .edu-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 32px; }
-      .exp-item.reverse { direction: ltr; }
+      .timeline-items { min-width: auto; padding: 0; flex-direction: column; }
+      .timeline-line { display: none; }
+      .timeline-item { min-width: auto; padding-top: 0; padding-left: 24px; border-left: 2px solid #D2D2D7; }
+      .timeline-item::before { top: 24px; left: -9px; transform: none; }
+      .timeline-item + .timeline-item { margin-top: 24px; }
       .portfolio-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -449,48 +481,48 @@
   <section class="theme-white">
     <div class="container">
       <p class="caption reveal">工作经历</p>
-      <h2 class="headline-small center reveal delay-1" style="margin-bottom: 80px;">学生工作与实践</h2>
+      <h2 class="headline-small center reveal delay-1" style="margin-bottom: 60px;">学生工作与实践</h2>
 
-      <div class="exp-item reveal">
-        <div class="exp-content">
-          <div class="period">2023.9 - 2025.6</div>
-          <h3>学生电视台台长</h3>
-          <div class="role">北京交通大学党委宣传部</div>
-          <ul>
-            <li>"一带一路"十周年主题 MV《万里当歌》摄像与现场协调总负责人</li>
-            <li>组织策划校内特别栏目《主播说交大》</li>
-            <li>沟通协调对接多家国级媒体的对外拍摄活动</li>
-          </ul>
+      <div class="timeline-wrap reveal delay-2">
+        <div class="timeline-line"></div>
+        <div class="timeline-items">
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="period">2023.9 - 2024.6</div>
+              <h3>宣传部副部长</h3>
+              <div class="role">物理工程学院团委</div>
+              <ul>
+                <li>负责学院公众号"悟理功成"运营管理</li>
+                <li>定期进行宣传与沟通技能培训</li>
+                <li>组织每月例会，阶段性工作总结</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="period">2023.9 - 2025.6</div>
+              <h3>学生电视台台长</h3>
+              <div class="role">党委宣传部</div>
+              <ul>
+                <li>"一带一路"MV《万里当歌》摄像与现场协调总负责人</li>
+                <li>组织策划校内栏目《主播说交大》</li>
+                <li>对接多家国级媒体对外拍摄活动</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="period">2024.7 - 2025.12</div>
+              <h3>直播总导演</h3>
+              <div class="role">孔子研究院《彝伦讲台》</div>
+              <ul>
+                <li>统筹直播全流程、机位调度与导播切换</li>
+                <li>管理直播设备，协调多岗位人员</li>
+                <li>制定应急预案，处理突发技术故障</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="exp-visual">🎬</div>
-      </div>
-
-      <div class="exp-item reverse reveal">
-        <div class="exp-content">
-          <div class="period">2024.7 - 2025.12</div>
-          <h3>直播总导演</h3>
-          <div class="role">孔子研究院《彝伦讲台》</div>
-          <ul>
-            <li>统筹直播全流程，负责机位调度与导播切换节奏把控</li>
-            <li>管理直播设备，协调摄像、导播、灯光、后勤等岗位人员</li>
-            <li>制定直播应急预案，处理突发技术故障</li>
-          </ul>
-        </div>
-        <div class="exp-visual">📡</div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-content">
-          <div class="period">2023.9 - 2024.6</div>
-          <h3>宣传部副部长</h3>
-          <div class="role">北京交通大学物理工程学院团委</div>
-          <ul>
-            <li>负责学院公众号"悟理功成"的运营管理</li>
-            <li>定期进行宣传与沟通技能培训</li>
-            <li>组织开展每月例会，进行阶段性工作总结</li>
-          </ul>
-        </div>
-        <div class="exp-visual">✍️</div>
       </div>
     </div>
   </section>
