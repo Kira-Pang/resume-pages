@@ -114,13 +114,13 @@
       border-bottom-color: var(--gold);
     }
     .hero-avatar {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--gold);
       box-shadow: 0 0 30px rgba(244,208,63,0.25);
-      margin-bottom: 20px;
+      flex-shrink: 0;
     }
 
     /* Education */
@@ -199,9 +199,11 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar reveal">
-      <h1 class="reveal reveal-delay-1">庞筱妍</h1>
-      <div class="divider reveal reveal-delay-2"></div>
+      <div class="reveal" style="display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap;">
+        <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar">
+        <h1 style="margin: 0;">庞筱妍</h1>
+      </div>
+      <div class="divider reveal reveal-delay-1"></div>
       <p class="email reveal reveal-delay-2">
         <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
       </p>
