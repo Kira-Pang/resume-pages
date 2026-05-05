@@ -43,7 +43,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Cards */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
+        <div className="flex flex-wrap justify-center items-stretch gap-6 mb-16 w-full">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.label}
@@ -54,11 +54,12 @@ export default function Contact() {
                 delay: 0.15 * index,
                 ease: [0.16, 1, 0.3, 1],
               }}
+              className="flex-1 min-w-[240px] max-w-[320px]"
             >
               {info.href ? (
                 <a
                   href={info.href}
-                  className="block p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-[var(--morandi-accent)]/30 transition-all duration-500 group"
+                  className="block p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-[var(--morandi-accent)]/30 transition-all duration-500 group h-full text-center"
                 >
                   <info.icon className="w-6 h-6 text-[var(--morandi-accent)] mx-auto mb-4" />
                   <p className="text-xs font-body text-[var(--morandi-dark-text-secondary)] mb-1">{info.label}</p>
@@ -68,7 +69,7 @@ export default function Contact() {
                   </p>
                 </a>
               ) : (
-                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl h-full text-center">
                   <info.icon className="w-6 h-6 text-[var(--morandi-accent)] mx-auto mb-4" />
                   <p className="text-xs font-body text-[var(--morandi-dark-text-secondary)] mb-1">{info.label}</p>
                   <p className="font-body text-sm text-[var(--morandi-dark-text)]">{info.value}</p>
