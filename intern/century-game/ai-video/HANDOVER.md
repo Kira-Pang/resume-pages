@@ -53,28 +53,39 @@ git config --global user.email "你的邮箱@example.com"
 ## 项目结构
 
 ```
-ai-video/
-├── index.html              # Vite 入口（引用 /src/main.tsx）
-├── vite.config.ts          # base: './'，固定输出文件名
-├── src/
-│   ├── main.tsx            # React 入口，BrowserRouter basename
-│   ├── App.tsx             # 单路由 → Home 页
-│   ├── pages/Home.tsx      # 页面组合：Nav + Sections + Footer
-│   ├── sections/
-│   │   ├── Hero.tsx        # 首屏：头像、姓名、标签
-│   │   ├── About.tsx       # 个人简介
-│   │   ├── Skills.tsx      # 工具箱：4 分类星级评分（AI/视频/图像/编程）
-│   │   ├── Projects.tsx    # 项目经历：7 个项目，两列折叠卡片（左4右3）
-│   │   ├── Portfolio.tsx   # 精选作品：4 个作品 4 列网格，有图片/视频/lightbox
-│   │   ├── Experience.tsx  # 工作经历时间线
-│   │   ├── Contact.tsx     # 联系：邮箱+所在地，居中 2 卡片
-│   │   └── Footer.tsx      # 页脚
-│   ├── components/
-│   │   ├── Navbar.tsx      # 固定导航：6 项（关于/技能/项目/作品/经历/联系）
-│   │   ├── ScrollGuide.tsx # 滚动引导点
-│   │   └── SectionDivider.tsx
-│   └── hooks/useScrollReveal.ts
-
+resume_pages/                    ← 项目根目录
+├── assets/
+│   ├── images/                  # 共享图片资源
+│   │   ├── AIGC红包封面.jpg
+│   │   ├── 万里当歌.jpg
+│   │   └── 彝伦讲堂现场.jpg
+│   └── videos/                  # 共享视频资源
+│       └── 亿生帮广告视频.mp4
+├── .github/workflows/
+│   └── deploy.yml               # GitHub Actions 部署配置
+└── intern/
+    └── century-game/
+        └── ai-video/            ← 子项目目录（Vite + React）
+            ├── index.html       # Vite 入口
+            ├── vite.config.ts   # base: './'，固定输出文件名
+            └── src/
+                ├── main.tsx     # React 入口，BrowserRouter basename
+                ├── App.tsx      # 单路由 → Home 页
+                ├── pages/Home.tsx
+                ├── sections/
+                │   ├── Hero.tsx
+                │   ├── About.tsx
+                │   ├── Skills.tsx
+                │   ├── Projects.tsx
+                │   ├── Portfolio.tsx
+                │   ├── Experience.tsx
+                │   ├── Contact.tsx
+                │   └── Footer.tsx
+                ├── components/
+                │   ├── Navbar.tsx
+                │   ├── ScrollGuide.tsx
+                │   └── SectionDivider.tsx
+                └── hooks/useScrollReveal.ts
 ```
 
 ## 关键配置
