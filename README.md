@@ -2,7 +2,9 @@
 
 ## 项目概述
 
-- **名称**：庞筱妍-点点互动AI实习生简历页
+- **仓库名称**：resume-pages
+- **项目根目录**：`<你的目录>/resume_pages`
+- **当前页面**：庞筱妍-点点互动AI实习生简历页（`intern/century-game/ai-video/`）
 - **线上地址**：https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/
 - **技术栈**：React 19 + Vite 7 + TypeScript + Tailwind CSS + Framer Motion + React Router v7
 - **部署方式**：GitHub Pages（GitHub Actions 自动构建）
