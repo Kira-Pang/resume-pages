@@ -74,8 +74,7 @@ ai-video/
 │   │   ├── ScrollGuide.tsx # 滚动引导点
 │   │   └── SectionDivider.tsx
 │   └── hooks/useScrollReveal.ts
-├── dist/                   # 构建产物（不要手动修改）
-└── public/                 # 静态资源（空）
+
 ```
 
 ## 关键配置
@@ -133,7 +132,7 @@ ai-video/
 
 ## 部署流程
 
-1. 修改源代码（**不要**动 `dist/` 和根目录混入的 `assets/index.js/css`）
+1. 修改源代码
 2. `cd ../../.. && git add -A && git commit -m "..." && git push origin main`
 4. GitHub Actions **自动**完成以下操作（你不需要手动执行）：
    - 在 CI 中 `cd intern/century-game/ai-video && npm ci && npm run build`
