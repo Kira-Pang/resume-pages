@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { ChevronDown, Sparkles, Code, Clapperboard, Palette, Video, Bot } from 'lucide-react';
+import { ChevronDown, Sparkles, Code, Clapperboard, Video, Bot } from 'lucide-react';
 
 interface Project {
   id: string;
