@@ -74,7 +74,7 @@ const projects: Project[] = [
   },
   {
     id: '5',
-    title: '亿生帮商业视频广告制作',
+    title: '「亿生帮」商业视频广告制作',
     tags: ['商业广告', '视频拍摄', '创意策划', '镜头设计', '甲方对接', '广告交付'],
     icon: Clapperboard,
     role: '导演 / 摄像 / 创意策划',
