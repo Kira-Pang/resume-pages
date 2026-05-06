@@ -240,6 +240,11 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
+    .portfolio-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: calc(50% - 10px);
+    }
     .portfolio-card {
       background: var(--white);
       border-radius: 16px;
@@ -304,6 +309,11 @@
       .skill-row { flex-direction: column; gap: 6px; }
       .skill-name { width: auto; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+      }
     }
   </style>
   <meta name="deploy-check" content="2026-05-05T23:48:00+08:00">
