@@ -89,8 +89,9 @@ ai-video/
 ```
 
 ### GitHub Actions（.github/workflows/deploy.yml）
-- 构建 `intern/century-game/ai-video`
-- CI 自动把产物复制到 `dist/intern/century-game/ai-video/`
+- **项目根路径**：`<你的目录>/resume_pages`
+- CI 在根路径下构建子项目 `intern/century-game/ai-video`
+- 构建产物从 `intern/century-game/ai-video/dist/` 复制到 CI 临时目录 `dist/intern/century-game/ai-video/`
 - 部署到 `https://kira-pang.github.io/resume-pages/`
 
 ## 资源共享策略
