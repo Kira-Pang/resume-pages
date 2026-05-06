@@ -127,7 +127,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-[var(--morandi-bg)]">
-      <div ref={ref} className="max-w-[90rem] mx-auto px-6 md:px-12">
+      <div ref={ref} className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -241,15 +241,19 @@ export default function Projects() {
                                     key={i}
                                     className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
                                   >
-                                    <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
-                                    {hasColon ? (
-                                      <>
-                                        <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
-                                        {action.slice(colonIndex + 1)}
-                                      </>
-                                    ) : (
-                                      action
-                                    )}
+                                    <span className="flex-shrink-0 w-4 text-xs font-medium text-[var(--morandi-accent)] mt-0.5">
+                                      {i + 1}.
+                                    </span>
+                                    <span className="flex-1">
+                                      {hasColon ? (
+                                        <>
+                                          <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
+                                          {action.slice(colonIndex + 1)}
+                                        </>
+                                      ) : (
+                                        action
+                                      )}
+                                    </span>
                                   </li>
                                 );
                               })}
@@ -387,15 +391,19 @@ export default function Projects() {
                                       key={i}
                                       className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
                                     >
-                                      <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
-                                      {hasColon ? (
-                                        <>
-                                          <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
-                                          {action.slice(colonIndex + 1)}
-                                        </>
-                                      ) : (
-                                        action
-                                      )}
+                                      <span className="flex-shrink-0 w-4 text-xs font-medium text-[var(--morandi-accent)] mt-0.5">
+                                        {i + 1}.
+                                      </span>
+                                      <span className="flex-1">
+                                        {hasColon ? (
+                                          <>
+                                            <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
+                                            {action.slice(colonIndex + 1)}
+                                          </>
+                                        ) : (
+                                          action
+                                        )}
+                                      </span>
                                     </li>
                                   );
                                 })}
