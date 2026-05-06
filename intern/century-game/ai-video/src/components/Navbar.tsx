@@ -54,7 +54,7 @@ export default function Navbar() {
               }}
               className="font-display text-lg md:text-xl font-semibold tracking-tight text-[var(--morandi-text)]"
             >
-              庞筱妍
+              点点互动-AI实习生-庞筱妍个人简历
             </a>
 
             {/* Desktop Nav */}

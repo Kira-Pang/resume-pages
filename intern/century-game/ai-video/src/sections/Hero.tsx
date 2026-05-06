@@ -50,7 +50,7 @@ export default function Hero() {
           className="mb-6"
         >
           <span className="inline-block px-4 py-1.5 text-xs font-body tracking-widest uppercase text-[var(--morandi-text-secondary)] border border-[var(--morandi-border)] rounded-full">
-            AI 视频生成 / 剪辑
+            AI实习生
           </span>
         </motion.div>
 
