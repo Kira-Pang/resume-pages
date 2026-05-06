@@ -45,7 +45,7 @@ const defaultItems: PortfolioItem[] = [
     category: '摄像',
     description: '"一带一路"十周年主题 MV，担任摄像与现场协调总负责人。',
     type: 'image',
-    url: '../../../assets/images/万里当歌.png',
+    url: '../../../assets/images/万里当歌.jpg',
     link: 'https://weibo.com/tv/show/1034:4976420208967759?from=old_pc_videoshow',
   },
   {
