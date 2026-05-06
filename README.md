@@ -65,10 +65,33 @@ resume_pages/
 - 视频：`assets/videos/xxx.mp4`
 - 子项目中引用：`../../../assets/images/xxx.jpg`
 
+## 线上验证
+
+使用 Playwright 对部署后的页面截图验证（固定文件名，覆盖复写）：
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page(viewport={'width': 1440, 'height': 900})
+    page.goto('https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/?nocache=1')
+    page.wait_for_timeout(5000)
+    page.screenshot(path='verify.png')   # 固定文件名，每次覆盖
+    browser.close()
+```
+
+如需检查特定 section：
+```python
+page.evaluate("document.getElementById('xxx').scrollIntoView()")
+page.wait_for_timeout(800)
+page.screenshot(path='verify.png')
+```
+
 ## 常见问题
 
 **Q: GitHub Pages CDN 缓存不更新**
-- URL 后加 `?v=数字` 强制刷新，或等待 2-3 分钟
+- URL 后加 `?nocache=1` 或 `?v=数字` 强制刷新，或等待 2-3 分钟
 
 **Q: `npm run build` 只转换 4 个模块**
 - `index.html` 被构建产物覆盖，恢复为 Vite 入口文件（引用 `/src/main.tsx`）
