@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>庞筱妍</title>
+  <link rel="icon" type="image/png" href="./assets/images/favicon-circle.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #1A1A1A;
+      --gray: #6B6B6B;
+      --light-gray: #999;
+      --border: #E5E5E5;
+      --bg: #FAFAFA;
+      --white: #FFFFFF;
+      --accent: #B87333;
+      --font-display: 'Noto Serif SC', 'Songti SC', serif;
+      --font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--black);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    h1, h2, h3, h4 { font-family: var(--font-display); }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    section { padding: 100px 24px; }
+    section.white { background: var(--white); }
+    .container { max-width: 800px; margin: 0 auto; }
+
+    /* Section header - unified size */
+    .section-header {
+      margin-bottom: 48px;
+    }
+    .section-header .title {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--black);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,115,51,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(184,115,51,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 10s ease-in-out infinite reverse;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-profile {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .hero-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .hero-text {
+      text-align: left;
+    }
+    .hero-text h1 {
+      margin-bottom: 4px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero .email {
+      font-size: 15px;
+      color: var(--gray);
+    }
+    .hero .email a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .hero .email a:hover { border-bottom-color: var(--accent); }
+
+    /* Education */
+    .edu-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      transition: border-color 0.3s;
+    }
+    .edu-card:hover { border-color: rgba(184,115,51,0.3); }
+    .edu-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .edu-card p { font-size: 14px; color: var(--gray); }
+    .edu-card .time { font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 16px; }
+
+    /* Skills */
+    .skill-row {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-name {
+      width: 240px;
+      flex-shrink: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .skill-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* Timeline */
+    .timeline-wrap {
+      position: relative;
+      padding-top: 8px;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 16px;
+      left: 7px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 40px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px;
+      width: 14px; height: 14px;
+      background: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+    }
+    .timeline-item .period {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .timeline-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .timeline-item .role {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .timeline-item ul {
+      list-style: none;
+    }
+    .timeline-item li {
+      font-size: 14px;
+      color: var(--gray);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .timeline-item li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .portfolio-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .portfolio-card:hover { border-color: rgba(184,115,51,0.3); }
+    .portfolio-card .media {
+      aspect-ratio: 16/10;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .portfolio-card .media video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-card .media .placeholder {
+      text-align: center;
+      color: var(--light-gray);
+      font-size: 14px;
+    }
+    .portfolio-card .info {
+      padding: 20px;
+    }
+    .portfolio-card .info .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      background: var(--bg);
+      color: var(--accent);
+      border-radius: 20px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .portfolio-card .info h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .portfolio-card .info p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    footer p { font-size: 13px; color: var(--light-gray); }
+
+    @media (max-width: 640px) {
+      .edu-card { flex-direction: column; }
+      .edu-card .time { margin-left: 0; margin-top: 8px; }
+      .skill-row { flex-direction: column; gap: 6px; }
+      .skill-name { width: auto; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <meta name="deploy-check" content="2026-05-05T23:48:00+08:00">
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner reveal">
+      <div class="hero-profile">
+        <img src="./assets/images/photo.jpg" alt="庞筱妍" class="hero-avatar">
+        <div class="hero-text">
+          <h1>庞筱妍</h1>
+          <p class="email">
+            <a href="mailto:1483810819@qq.com">1483810819@qq.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="white">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="title">教育经历</div>
+      </div>
+      <div class="edu-card reveal delay-1">
+        <div>
+          <h3>澳门大学（QS 285）</h3>
+          <p>硕士 · 数据科学 - 金融科技</p>
+        </div>
+        <span class="time">2025.9 - 2027.6</span>
+      </div>
+      <div class="edu-card reveal delay-2">
+        <div>
+          <h3>北京交通大学（211）</h3>
+          <p>本科 · 光电信息科学与工程</p>
+        </div>
+        <span class="time">2021.9 - 2025.6</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="title">掌握的技能</div>
+      </div>
+      <div class="reveal delay-1">
+        <div class="skill-row">
+          <div class="skill-name">Kimi / Doubao / Sora / Nano Banana</div>
+          <div class="skill-desc">AIGC 内容生成、prompt engineering、多工具协同 workflow 搭建，红包封面项目微信曝光 29 万+</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">编导与拍摄</div>
+          <div class="skill-desc">视频脚本撰写、分镜设计、镜头语言（摇移镜头、推镜头）、直播全流程统筹与导播切换、多岗位人员调度</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Python</div>
+          <div class="skill-desc">数据处理、SQLite 数据库设计与使用、PyTorch 模型训练、CUDA 向 MPS 适配迁移</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">剪映 / Premiere Pro</div>
+          <div class="skill-desc">视频剪辑、调色、转场、字幕与音效添加</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Lightroom</div>
+          <div class="skill-desc">批量修改图片风格、色彩调整</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Photoshop</div>
+          <div class="skill-desc">基础图像修图、瑕疵修复</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">秀米 / 创客贴</div>
+          <div class="skill-desc">公众号图文排版、海报制作</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="white">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="title">工作经历</div>
+      </div>
+      <div class="timeline-wrap reveal delay-1">
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="period">2023.9 - 2024.6</div>
+          <h4>宣传部副部长</h4>
+          <div class="role">北京交通大学物理工程学院团委</div>
+          <ul>
+            <li>负责学院公众号"悟理功成"的运营管理</li>
+            <li>定期进行宣传与沟通技能培训</li>
+            <li>组织开展每月例会，进行阶段性工作总结与未来计划制定</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="period">2023.9 - 2025.6</div>
+          <h4>学生电视台台长</h4>
+          <div class="role">北京交通大学党委宣传部</div>
+          <ul>
+            <li>"一带一路"十周年主题 MV《万里当歌》摄像与现场协调总负责人</li>
+            <li>组织策划校内特别栏目《主播说交大》，完成视频号风格定位与制作流程设计</li>
+            <li>沟通协调学校对接多家国级媒体的对外拍摄活动</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="period">2024.7 - 2025.12</div>
+          <h4>直播总导演</h4>
+          <div class="role">孔子研究院《彝伦讲台》</div>
+          <ul>
+            <li>统筹直播全流程，负责直播脚本与流程设计、现场机位调度、导播切换节奏把控</li>
+            <li>管理直播设备（摄像机、导播台、音频、推流），协调摄像、导播、灯光、后勤等岗位人员</li>
+            <li>制定直播应急预案，处理突发技术故障与流程问题，保障直播顺利进行</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="title">作品集</div>
+      </div>
+      <div class="portfolio-grid reveal delay-1">
+        <div class="portfolio-card">
+          <div class="media">
+            <div class="placeholder">🎨 替换为作品图片</div>
+          </div>
+          <div class="info">
+            <span class="tag">AIGC</span>
+            <h4>AI 红包封面</h4>
+            <p>使用 Kimi + Doubao + Sora 多工具协同生成，融合家养宠物与新年元素，上线微信后综合曝光 29 万+次</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="media">
+            <video controls poster="">
+              <source src="./assets/videos/亿生帮广告视频.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="info">
+            <span class="tag">商业广告</span>
+            <h4>亿生帮商业视频广告</h4>
+            <p>独立完成从创意策划到交付的全流程，古典写意风格，获得甲方满意肯定</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="media">
+            <div class="placeholder">🎬 替换为作品图片</div>
+          </div>
+          <div class="info">
+            <span class="tag">MV</span>
+            <h4>《万里当歌》MV</h4>
+            <p>"一带一路"十周年主题 MV，担任摄像与现场协调总负责人</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="media">
+            <div class="placeholder">📡 替换为作品图片</div>
+          </div>
+          <div class="info">
+            <span class="tag">直播</span>
+            <h4>《彝伦讲台》直播</h4>
+            <p>孔子研究院直播总导演，统筹直播全流程、机位调度与导播切换</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="media">
+            <div class="placeholder">💻 替换为作品图片</div>
+          </div>
+          <div class="info">
+            <span class="tag">编程</span>
+            <h4>Vibe Coding</h4>
+            <p>使用 Kimi CLI 完成 CUDA 向 MPS 代码迁移（差异 &lt; 1%），复现论文并构建 Lasso 模型</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="media">
+            <div class="placeholder">🎨 替换为作品图片</div>
+          </div>
+          <div class="info">
+            <span class="tag">设计</span>
+            <h4>学院公众号宣传物料</h4>
+            <p>使用秀米完成公众号图文排版，使用创客贴制作宣传海报</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>庞筱妍 · 1483810819@qq.com</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
