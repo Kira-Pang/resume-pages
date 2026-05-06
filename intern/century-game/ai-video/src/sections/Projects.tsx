@@ -69,8 +69,7 @@ const projects: Project[] = [
     role: '独立开发者 / 研究者',
     actions: [
       '针对原项目的 CUDA 向 MPS 进行转换，完成 PyTorch 模型在 MacBook 上的训练适配',
-      '总结 Gu 的工作并对训练数据进行清洗',
-      '人工 review 无误后构建 Lasso 模型并进行训练',
+      '总结 Gu 的工作并对训练数据进行清洗，人工 review 无误后构建 Lasso 模型并进行训练',
     ],
     result: 'CUDA 转 MPS 后结果与原项目差异 < 1%；Lasso 模型结果与论文保持一致',
     abilities: ['AI 辅助编程', '深度学习框架', '数据分析与建模', '论文复现', '数据清洗'],
