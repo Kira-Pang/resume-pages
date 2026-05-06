@@ -101,7 +101,7 @@ ai-video/
 
 ### GitHub Actions（.github/workflows/deploy.yml）
 - 构建 `intern/century-game/ai-video`
-- 产物复制到 `dist/intern/century-game/ai-video/`
+- CI 自动把产物复制到 `dist/intern/century-game/ai-video/`
 - 部署到 `https://kira-pang.github.io/resume-pages/`
 
 ## 资源共享策略
