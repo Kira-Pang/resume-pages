@@ -5,8 +5,8 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: '关于', href: '#about' },
   { label: '技能', href: '#skills' },
-  { label: '作品', href: '#portfolio' },
   { label: '项目', href: '#projects' },
+  { label: '作品', href: '#portfolio' },
   { label: '经历', href: '#experience' },
   { label: '联系', href: '#contact' },
 ];
