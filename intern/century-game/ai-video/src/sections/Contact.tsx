@@ -37,8 +37,7 @@ export default function Contact() {
             让我们开始对话
           </h2>
           <p className="font-body text-base text-[var(--morandi-dark-text-secondary)] max-w-xl mx-auto leading-relaxed">
-            无论您是有项目合作意向，还是想了解更多关于 AI 视频创作的内容，
-            都欢迎随时与我联系。
+            欢迎随时与我联系
           </p>
         </motion.div>
 
