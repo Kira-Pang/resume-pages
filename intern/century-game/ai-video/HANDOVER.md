@@ -50,16 +50,6 @@ git config --global user.name "你的名字"
 git config --global user.email "你的邮箱@example.com"
 ```
 
-## 本地预览（可选）
-
-```bash
-cd /path/to/resume_pages/intern/century-game/ai-video
-npm install
-npm run dev      # 开发服务器 http://localhost:5173
-```
-
-> 实际部署不需要手动 build，push 后 GitHub Actions 自动完成。
-
 ## 项目结构
 
 ```
@@ -93,7 +83,6 @@ ai-video/
 ### Vite（vite.config.ts）
 - `base: './'` — 相对路径，适配 GitHub Pages 子目录
 - `build.rollupOptions.output` — 固定文件名（index.js / index.css），便于缓存刷新
-- **不要**在 build 后执行 `cp -r dist/* .`，这会覆盖 `index.html` 导致构建缓存问题
 
 ### React Router（src/main.tsx）
 ```tsx
@@ -145,8 +134,7 @@ ai-video/
 ## 部署流程
 
 1. 修改源代码（**不要**动 `dist/` 和根目录混入的 `assets/index.js/css`）
-2. `npm run build`（应显示 ~2120 modules transformed，如显示 4 个则 index.html 被污染，需恢复）
-3. `cd ../../.. && git add -A && git commit -m "..." && git push origin main`
+2. `cd ../../.. && git add -A && git commit -m "..." && git push origin main`
 4. GitHub Actions **自动**完成以下操作（你不需要手动执行）：
    - 在 CI 中 `cd intern/century-game/ai-video && npm ci && npm run build`
    - 把构建产物 `intern/century-game/ai-video/dist/*` 复制到 `dist/intern/century-game/ai-video/`
@@ -155,31 +143,6 @@ ai-video/
 5. 等待约 1-2 分钟后验证：`https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/`
 
 ## 常见问题
-
-### Q: `npm run build` 只转换 4 个模块
-**原因**：`index.html` 被构建产物覆盖（曾执行 `cp -r dist/* .`）。
-**修复**：
-```bash
-# 恢复 Vite 入口 index.html
-cat > index.html << 'EOF'
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>庞筱妍-点点互动AI实习生简历</title>
-    <link rel="icon" type="image/jpeg" href="./assets/icon.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-EOF
-rm -f assets/index.js assets/index.css
-npm run build
-```
 
 ### Q: GitHub Pages CDN 缓存不更新
 **解决**：在 URL 后加 `?v=数字` 强制刷新，或等待 2-3 分钟。
