@@ -90,7 +90,7 @@ export default function Contact() {
             <span className="relative inline-flex rounded-full h-3 w-3 bg-[var(--morandi-accent)]" />
           </span>
           <span className="font-body text-sm text-[var(--morandi-dark-text-secondary)]">
-            随时可到岗 · 可长期实习
+            随时到岗，实习3～6个月，每周到岗5天
           </span>
         </motion.div>
       </div>
