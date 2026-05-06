@@ -1,185 +1,79 @@
-# 项目交接文档
+# resume-pages
 
-## 项目概述
+多页面简历站点仓库，部署在 GitHub Pages。
 
-- **仓库名称**：resume-pages
-- **项目根目录**：`<你的目录>/resume_pages`
-- **当前页面**：庞筱妍-点点互动AI实习生简历页（`intern/century-game/ai-video/`）
-- **线上地址**：https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/
-- **技术栈**：React 19 + Vite 7 + TypeScript + Tailwind CSS + Framer Motion + React Router v7
-- **部署方式**：GitHub Pages（GitHub Actions 自动构建）
+## 线上地址
 
-## 新电脑首次配置
-
-仓库是 **公开的**，`git clone` 无需认证，但 `git push` 需要配置身份验证。
-
-### 方式一：SSH（推荐，长期免输密码）
-
-```bash
-# 1. 生成 SSH key（一路回车）
-ssh-keygen -t ed25519 -C "你的邮箱@example.com"
-
-# 2. 复制公钥内容
-cat ~/.ssh/id_ed25519.pub
-# 把输出的内容贴到 GitHub → Settings → SSH and GPG keys → New SSH key
-
-# 3. 验证连接
-ssh -T git@github.com
-# 应显示：Hi Kira-Pang! You've successfully authenticated...
-
-# 4. clone 并进入项目
-git clone git@github.com:Kira-Pang/resume-pages.git <你想放的目录>/resume_pages
-cd <你想放的目录>/resume_pages/intern/century-game/ai-video
-```
-
-### 方式二：HTTPS（简单，但每次 push 需输 token）
-
-```bash
-# 1. 在 GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
-#    生成一个 token，勾选 repo 权限
-
-# 2. clone 并进入项目
-git clone https://github.com/Kira-Pang/resume-pages.git <你想放的目录>/resume_pages
-cd <你想放的目录>/resume_pages/intern/century-game/ai-video
-
-# 3. 推送时用户名填你的 GitHub 用户名，密码填刚才生成的 token
-```
-
-### Git 基础配置（两种方式都需要）
-
-```bash
-git config --global user.name "你的名字"
-git config --global user.email "你的邮箱@example.com"
-```
-
-## 项目结构
-
-```
-resume_pages/                    ← 项目根目录
-├── assets/
-│   ├── images/                  # 共享图片资源
-│   │   ├── AIGC红包封面.jpg
-│   │   ├── 万里当歌.jpg
-│   │   └── 彝伦讲堂现场.jpg
-│   └── videos/                  # 共享视频资源
-│       └── 亿生帮广告视频.mp4
-├── .github/workflows/
-│   └── deploy.yml               # GitHub Actions 部署配置
-└── intern/
-    └── century-game/
-        └── ai-video/            ← 子项目目录（Vite + React）
-            ├── index.html       # Vite 入口
-            ├── vite.config.ts   # base: './'，固定输出文件名
-            └── src/
-                ├── main.tsx     # React 入口，BrowserRouter basename
-                ├── App.tsx      # 单路由 → Home 页
-                ├── pages/Home.tsx
-                ├── sections/
-                │   ├── Hero.tsx
-                │   ├── About.tsx
-                │   ├── Skills.tsx
-                │   ├── Projects.tsx
-                │   ├── Portfolio.tsx
-                │   ├── Experience.tsx
-                │   ├── Contact.tsx
-                │   └── Footer.tsx
-                ├── components/
-                │   ├── Navbar.tsx
-                │   ├── ScrollGuide.tsx
-                │   └── SectionDivider.tsx
-                └── hooks/useScrollReveal.ts
-```
-
-## 关键配置
-
-### Vite（`intern/century-game/ai-video/vite.config.ts`）
-- `base: './'` — 相对路径，适配 GitHub Pages 子目录
-- `build.rollupOptions.output` — 固定文件名（index.js / index.css），便于缓存刷新
-
-### React Router（`intern/century-game/ai-video/src/main.tsx`）
-```tsx
-<BrowserRouter basename="/resume-pages/intern/century-game/ai-video">
-```
-
-### GitHub Actions（.github/workflows/deploy.yml）
-- **项目根路径**：`<你的目录>/resume_pages`
-- CI 在根路径下构建子项目 `intern/century-game/ai-video`
-- 构建产物从 `intern/century-game/ai-video/dist/` 复制到 CI 临时目录 `dist/intern/century-game/ai-video/`
-- 部署到 `https://kira-pang.github.io/resume-pages/`
-
-## 资源共享策略
-
-图片/视频放在 **repo 根目录** `assets/` 下，子项目通过相对路径引用：
-
-```tsx
-// 从 ai-video/dist/index.html 出发，../../ 指向 resume_pages/
-'../../../assets/images/xxx.jpg'
-'../../../assets/videos/xxx.mp4'
-```
-
-已使用的资源：
-- `assets/images/AIGC红包封面.jpg` → Portfolio 红包封面
-- `assets/images/万里当歌.jpg` → Portfolio 万里当歌 MV
-- `assets/images/彝伦讲堂现场.jpg` → Portfolio 彝伦讲台直播
-- `assets/videos/亿生帮广告视频.mp4` → Portfolio 亿生帮商业广告
-
-## 当前功能状态
-
-### 已完成 ✅
-- Hero：头像 + 姓名 + AI实习生标签
-- Skills：4 列星级评分工具箱
-- Projects：7 个项目，两列折叠卡片，含核心行动/量化成果/体现能力
-- Portfolio：4 个作品 4 列网格，图片/视频/lightbox 放大，标题可外链
-- Experience：时间线式工作经历
-- Contact：2 卡片居中（邮箱+所在地）
-- Footer：© 2026
-- Navbar：岗位招聘链接（点点互动-AI实习生）+ 6 项锚点导航
-- 所有外链文字 accent 色区分
-
-### 超链接清单
-| 文字 | 链接 |
+| 页面 | 链接 |
 |------|------|
-| 点点互动-AI实习生 | https://centurygame.zhiye.com/intern/detail?jobAdId=2821c194-7aa0-4863-b0b2-c3f6b55cc82d |
-| 《万里当歌》MV | https://weibo.com/tv/show/1034:4976420208967759?from=old_pc_videoshow |
-| 《彝伦讲台》直播 | https://mp.weixin.qq.com/s/33zXIX9UQ2DSl1cWWQJHlQ?click_id=12 |
-| 邮箱 1483810819@qq.com | mailto:1483810819@qq.com |
+| 点点互动 AI 实习生 | https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/ |
 
-## 部署流程
+## 技术栈
 
-1. 修改源代码
-2. 在项目根目录执行：
+- React 19 + Vite 7 + TypeScript
+- Tailwind CSS + Framer Motion
+- React Router v7
+- GitHub Actions 自动部署
+
+## 仓库结构
+
+```
+resume_pages/
+├── README.md                  # 本文件
+├── .github/workflows/
+│   └── deploy.yml             # GitHub Actions 部署配置
+├── assets/                    # 共享资源（图片、视频）
+│   ├── images/
+│   └── videos/
+└── intern/                    # 子页面目录
+    └── century-game/
+        └── ai-video/          # 点点互动 AI 实习生简历页
+            ├── index.html
+            ├── vite.config.ts
+            ├── package.json
+            └── src/
+```
+
+## 添加新页面
+
+1. 复制现有子项目作为模板：
    ```bash
-   cd <你的目录>/resume_pages
-   git add -A
-   git commit -m "..."
-   git push origin main
+   cp -r intern/century-game/ai-video intern/<公司>/<岗位>/<页面名>
    ```
-4. GitHub Actions **自动**完成以下操作（你不需要手动执行）：
-   - 在 CI 中 `cd intern/century-game/ai-video && npm ci && npm run build`
-   - 把构建产物 `intern/century-game/ai-video/dist/*` 复制到 `dist/intern/century-game/ai-video/`
-   - 把根目录 `index.html` 和 `assets/` 复制到 `dist/`
-   - 部署到 GitHub Pages
-5. 等待约 1-2 分钟后验证：`https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/`
+
+2. 修改以下文件中的路径：
+   - `src/main.tsx` — `BrowserRouter basename` 改为新页面的部署路径
+   - `vite.config.ts` — 检查 `base: './'` 是否正确
+   - `package.json` — 如有需要更新名称
+
+3. 修改 `.github/workflows/deploy.yml`，添加新页面的构建和复制步骤
+
+4. 图片/视频放入 `assets/` 根目录，通过 `../../../assets/...` 相对路径引用
+
+5. `git add -A && git commit -m "feat: add xxx page" && git push origin main`
+
+## 修改现有页面
+
+1. 进入子项目目录修改源码
+2. `git add -A && git commit -m "..." && git push origin main`
+3. GitHub Actions 自动构建部署（约 1-2 分钟）
+4. 线上验证
+
+## 资源共享
+
+- 图片：`assets/images/xxx.jpg`
+- 视频：`assets/videos/xxx.mp4`
+- 子项目中引用：`../../../assets/images/xxx.jpg`
 
 ## 常见问题
 
-### Q: GitHub Pages CDN 缓存不更新
-**解决**：在 URL 后加 `?v=数字` 强制刷新，或等待 2-3 分钟。
+**Q: GitHub Pages CDN 缓存不更新**
+- URL 后加 `?v=数字` 强制刷新，或等待 2-3 分钟
 
-### Q: 添加新图片到 Portfolio
-1. 图片放入 `assets/images/`
-2. Portfolio.tsx 中 `url` 写 `'../../../assets/images/xxx.jpg'`
-3. `type: 'image'`
-4. 如需外链加 `link: 'https://...'`
-
-## 待办/可优化项
-
-- [ ] 移动端适配测试（目前主要优化桌面端）
-- [ ] 性能：大图片懒加载
-- [ ] SEO：meta description、Open Graph 标签
-- [ ] 多页面架构标准化（当前为单页，未来如添加 Tencent HR intern 等新页面需复制配置）
+**Q: `npm run build` 只转换 4 个模块**
+- `index.html` 被构建产物覆盖，恢复为 Vite 入口文件（引用 `/src/main.tsx`）
+- 删除根目录混入的 `assets/index.js` 和 `assets/index.css`
 
 ## 联系方式
 
 - 邮箱：1483810819@qq.com
-- 岗位：点点互动 AI实习生
