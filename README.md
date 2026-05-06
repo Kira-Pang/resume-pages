@@ -67,7 +67,22 @@ resume_pages/
 
 ## 线上验证
 
-使用 Playwright 对部署后的页面截图验证（固定文件名，覆盖复写）：
+### 环境准备
+
+1. **确认 conda 环境**：
+   ```bash
+   conda env list
+   # 选择已有环境（如 qwen）或创建新环境
+   conda activate <你的环境名>
+   ```
+
+2. **安装 Playwright**：
+   ```bash
+   pip install playwright
+   playwright install chromium
+   ```
+
+### 截图验证
 
 ```python
 from playwright.sync_api import sync_playwright
