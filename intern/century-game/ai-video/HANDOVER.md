@@ -7,6 +7,49 @@
 - **技术栈**：React 19 + Vite 7 + TypeScript + Tailwind CSS + Framer Motion + React Router v7
 - **部署方式**：GitHub Pages（GitHub Actions 自动构建）
 
+## 新电脑首次配置
+
+仓库是 **公开的**，`git clone` 无需认证，但 `git push` 需要配置身份验证。
+
+### 方式一：SSH（推荐，长期免输密码）
+
+```bash
+# 1. 生成 SSH key（一路回车）
+ssh-keygen -t ed25519 -C "你的邮箱@example.com"
+
+# 2. 复制公钥内容
+cat ~/.ssh/id_ed25519.pub
+# 把输出的内容贴到 GitHub → Settings → SSH and GPG keys → New SSH key
+
+# 3. 验证连接
+ssh -T git@github.com
+# 应显示：Hi Kira-Pang! You've successfully authenticated...
+
+# 4. clone 仓库
+git clone git@github.com:Kira-Pang/resume-pages.git
+cd resume-pages/intern/century-game/ai-video
+```
+
+### 方式二：HTTPS（简单，但每次 push 需输 token）
+
+```bash
+# 1. 在 GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+#    生成一个 token，勾选 repo 权限
+
+# 2. clone 仓库
+git clone https://github.com/Kira-Pang/resume-pages.git
+cd resume-pages/intern/century-game/ai-video
+
+# 3. 推送时用户名填你的 GitHub 用户名，密码填刚才生成的 token
+```
+
+### Git 基础配置（两种方式都需要）
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱@example.com"
+```
+
 ## 快速启动
 
 ```bash
