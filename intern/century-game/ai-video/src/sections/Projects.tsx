@@ -148,24 +148,26 @@ export default function Projects() {
         </motion.div>
 
         {/* Project List */}
-        <div className="space-y-4">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.08 * index,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group"
-            >
-              <div
-                className={`bg-[var(--morandi-bg-card)]/60 backdrop-blur-xl rounded-xl md:rounded-2xl border border-[var(--morandi-border)]/80 overflow-hidden transition-all duration-500 hover:border-[var(--morandi-accent)]/30 hover:shadow-[0_12px_40px_rgba(184,115,51,0.15)] ${
-                  expandedId === project.id ? 'shadow-[0_8px_32px_rgba(184,115,51,0.1)] border-[var(--morandi-accent)]/25' : ''
-                }`}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Left Column — first 4 projects */}
+          <div className="space-y-4">
+            {projects.slice(0, 4).map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.08 * index,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group"
               >
+                <div
+                  className={`bg-[var(--morandi-bg-card)]/60 backdrop-blur-xl rounded-xl md:rounded-2xl border border-[var(--morandi-border)]/80 overflow-hidden transition-all duration-500 hover:border-[var(--morandi-accent)]/30 hover:shadow-[0_12px_40px_rgba(184,115,51,0.15)] ${
+                    expandedId === project.id ? 'shadow-[0_8px_32px_rgba(184,115,51,0.1)] border-[var(--morandi-accent)]/25' : ''
+                  }`}
+                >
                 {/* Header — always visible */}
                 <button
                   onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
@@ -278,8 +280,144 @@ export default function Projects() {
                   )}
                 </AnimatePresence>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right Column — last 3 projects */}
+          <div className="space-y-4">
+            {projects.slice(4).map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.08 * (index + 4),
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group"
+              >
+                <div
+                  className={`bg-[var(--morandi-bg-card)]/60 backdrop-blur-xl rounded-xl md:rounded-2xl border border-[var(--morandi-border)]/80 overflow-hidden transition-all duration-500 hover:border-[var(--morandi-accent)]/30 hover:shadow-[0_12px_40px_rgba(184,115,51,0.15)] ${
+                    expandedId === project.id ? 'shadow-[0_8px_32px_rgba(184,115,51,0.1)] border-[var(--morandi-accent)]/25' : ''
+                  }`}
+                >
+                  {/* Header — always visible */}
+                  <button
+                    onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
+                    className="w-full flex items-start gap-4 md:gap-5 p-4 md:p-6 text-left"
+                  >
+                    {/* Icon */}
+                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[var(--morandi-bg)] border border-[var(--morandi-border)] flex items-center justify-center group-hover:border-[var(--morandi-accent)] group-hover:bg-[var(--morandi-accent-light)] transition-all duration-500">
+                      <project.icon className="w-4 h-4 md:w-5 md:h-5 text-[var(--morandi-accent)]" />
+                    </div>
+
+                    {/* Title + Tags */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <h3 className="font-display text-base md:text-lg font-semibold text-[var(--morandi-text)]">
+                          {project.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[10px] md:text-xs font-body px-2 py-0.5 bg-[var(--morandi-bg-secondary)] text-[var(--morandi-text-secondary)] rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {project.tags.length > 3 && (
+                            <span className="text-[10px] md:text-xs font-body px-2 py-0.5 text-[var(--morandi-text-muted)]">
+                              +{project.tags.length - 3}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <p className="font-body text-xs md:text-sm text-[var(--morandi-text-secondary)] mt-1">
+                        {project.role}
+                      </p>
+                    </div>
+
+                    {/* Expand Chevron */}
+                    <div className="flex-shrink-0 pt-1">
+                      <motion.div
+                        animate={{ rotate: expandedId === project.id ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown className="w-5 h-5 text-[var(--morandi-text-muted)]" />
+                      </motion.div>
+                    </div>
+                  </button>
+
+                  {/* Expanded Content */}
+                  <AnimatePresence initial={false}>
+                    {expandedId === project.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 md:px-6 pb-5 md:pb-6 pt-0">
+                          <div className="pl-14 md:pl-17 border-l border-[var(--morandi-border)]/60 ml-5 md:ml-6">
+                            {/* Actions */}
+                            <div className="mb-4">
+                              <h4 className="text-xs font-body uppercase tracking-wider text-[var(--morandi-text-muted)] mb-2">
+                                核心行动
+                              </h4>
+                              <ul className="space-y-1.5">
+                                {project.actions.map((action, i) => (
+                                  <li
+                                    key={i}
+                                    className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
+                                  >
+                                    <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
+                                    {action}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* Result */}
+                            {project.result && (
+                              <div className="mb-4">
+                                <h4 className="text-xs font-body uppercase tracking-wider text-[var(--morandi-text-muted)] mb-1.5">
+                                  量化成果
+                                </h4>
+                                <p className="font-body text-sm text-[var(--morandi-text)] font-medium">
+                                  {project.result}
+                                </p>
+                              </div>
+                            )}
+
+                            {/* Abilities */}
+                            <div>
+                              <h4 className="text-xs font-body uppercase tracking-wider text-[var(--morandi-text-muted)] mb-2">
+                                体现能力
+                              </h4>
+                              <div className="flex flex-wrap gap-2">
+                                {project.abilities.map((ability) => (
+                                  <span
+                                    key={ability}
+                                    className="text-xs font-body px-3 py-1 bg-[var(--morandi-accent-light)] text-[var(--morandi-accent)] rounded-full"
+                                  >
+                                    {ability}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
