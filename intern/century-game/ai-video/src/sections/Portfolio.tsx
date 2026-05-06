@@ -31,14 +31,7 @@ const defaultItems: PortfolioItem[] = [
     type: 'video',
     url: '../../../assets/videos/亿生帮广告视频.mp4',
   },
-  {
-    id: '3',
-    title: '学院公众号宣传物料',
-    category: '平面设计',
-    description: '负责"悟理功成"公众号视觉物料，使用秀米、创客贴完成排版与海报设计。',
-    type: 'image',
-    url: '',
-  },
+
   {
     id: '4',
     title: '《万里当歌》MV',
@@ -67,7 +60,7 @@ export default function Portfolio() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadingForId, setUploadingForId] = useState<string | null>(null);
 
-  const categories = ['全部', 'AIGC', '视频广告', '平面设计', '摄像', '直播导演'];
+  const categories = ['全部', 'AIGC', '视频广告', '摄像', '直播导演'];
 
   const filteredItems = filter === '全部' ? items : items.filter((item) => item.category === filter);
 
@@ -143,7 +136,7 @@ export default function Portfolio() {
         />
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
