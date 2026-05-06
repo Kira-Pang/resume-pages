@@ -63,7 +63,7 @@ export default function Contact() {
                 >
                   <info.icon className="w-6 h-6 text-[var(--morandi-accent)] mx-auto mb-4" />
                   <p className="text-xs font-body text-[var(--morandi-dark-text-secondary)] mb-1">{info.label}</p>
-                  <p className="font-body text-sm text-[var(--morandi-dark-text)] group-hover:text-[var(--morandi-accent)] transition-colors duration-300 flex items-center justify-center gap-1">
+                  <p className="font-body text-sm text-[var(--morandi-accent)] group-hover:underline transition-colors duration-300 flex items-center justify-center gap-1">
                     {info.value}
                     <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </p>

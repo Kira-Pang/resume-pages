@@ -51,7 +51,7 @@ export default function Navbar() {
                 href="https://centurygame.zhiye.com/intern/detail?jobAdId=2821c194-7aa0-4863-b0b2-c3f6b55cc82d"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--morandi-accent)] transition-colors duration-300"
+                className="text-[var(--morandi-accent)] hover:underline transition-colors duration-300"
               >
                 点点互动-AI实习生
               </a>

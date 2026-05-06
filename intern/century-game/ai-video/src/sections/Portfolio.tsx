@@ -202,7 +202,7 @@ export default function Portfolio() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[var(--morandi-accent)] transition-colors duration-300"
+                      className="text-[var(--morandi-accent)] hover:underline transition-colors duration-300"
                     >
                       {item.title}
                     </a>
