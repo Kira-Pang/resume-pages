@@ -79,11 +79,11 @@ ai-video/
 
 ## 关键配置
 
-### Vite（vite.config.ts）
+### Vite（`intern/century-game/ai-video/vite.config.ts`）
 - `base: './'` — 相对路径，适配 GitHub Pages 子目录
 - `build.rollupOptions.output` — 固定文件名（index.js / index.css），便于缓存刷新
 
-### React Router（src/main.tsx）
+### React Router（`intern/century-game/ai-video/src/main.tsx`）
 ```tsx
 <BrowserRouter basename="/resume-pages/intern/century-game/ai-video">
 ```
