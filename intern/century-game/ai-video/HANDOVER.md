@@ -146,8 +146,12 @@ ai-video/
 1. 修改源代码（**不要**动 `dist/` 和根目录混入的 `assets/index.js/css`）
 2. `npm run build`（应显示 ~2120 modules transformed，如显示 4 个则 index.html 被污染，需恢复）
 3. `cd ../../.. && git add -A && git commit -m "..." && git push origin main`
-4. GitHub Actions 自动构建并部署（约 1-2 分钟）
-5. 验证：`https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/`
+4. GitHub Actions **自动**完成以下操作（你不需要手动执行）：
+   - 在 CI 中 `cd intern/century-game/ai-video && npm ci && npm run build`
+   - 把构建产物 `intern/century-game/ai-video/dist/*` 复制到 `dist/intern/century-game/ai-video/`
+   - 把根目录 `index.html` 和 `assets/` 复制到 `dist/`
+   - 部署到 GitHub Pages
+5. 等待约 1-2 分钟后验证：`https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/`
 
 ## 常见问题
 
