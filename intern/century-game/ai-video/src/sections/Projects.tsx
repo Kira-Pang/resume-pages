@@ -47,7 +47,7 @@ const projects: Project[] = [
     title: '基于 Kimi Agent + Skills 的一对一简历生成工具',
     tags: ['Kimi Agent', 'Skills 库', '自动化', 'Web 开发', 'PDF 生成', '精准匹配'],
     icon: Bot,
-    role: '独立开发者 / 产品经理',
+    role: '独立开发者',
     actions: [
       '基于 Kimi Agent 构建个人数字分身，形成个人 Skills 库',
       '接入 KimiClaw 实习信息搜集工具',
