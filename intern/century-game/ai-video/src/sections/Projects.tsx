@@ -148,7 +148,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Project List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Left Column — first 4 projects */}
           <div className="space-y-4">
             {projects.slice(0, 4).map((project, index) => (
