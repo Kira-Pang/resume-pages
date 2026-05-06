@@ -28,10 +28,48 @@ resume_pages/
 └── intern/                    # 子页面目录
     └── century-game/
         └── ai-video/          # 点点互动 AI 实习生简历页
-            ├── index.html
-            ├── vite.config.ts
-            ├── package.json
-            └── src/
+            ├── index.html              # Vite 入口
+            ├── vite.config.ts          # Vite 配置（base: './'）
+            ├── package.json            # 依赖配置
+            ├── package-lock.json
+            ├── tsconfig.json           # TypeScript 配置
+            ├── tsconfig.app.json
+            ├── tsconfig.node.json
+            ├── tailwind.config.js      # Tailwind 配置
+            ├── postcss.config.js
+            ├── eslint.config.js
+            ├── components.json         # shadcn/ui 配置
+            ├── info.md                 # 项目信息
+            ├── README.md               # 子项目说明
+            ├── .gitignore
+            ├── public/                 # 静态资源目录（空）
+            ├── assets/                 # 构建产物目录（icon.jpeg 等）
+            ├── dist/                   # 构建输出（不要手动修改）
+            ├── node_modules/           # 依赖目录
+            └── src/                    # 源码目录
+                ├── main.tsx            # React 入口
+                ├── App.tsx             # 根组件
+                ├── index.css           # 全局样式（CSS 变量）
+                ├── App.css
+                ├── pages/
+                │   └── Home.tsx        # 页面组合
+                ├── sections/           # 页面各个区块
+                │   ├── Hero.tsx
+                │   ├── About.tsx
+                │   ├── Skills.tsx
+                │   ├── Projects.tsx
+                │   ├── Portfolio.tsx
+                │   ├── Experience.tsx
+                │   ├── Contact.tsx
+                │   └── Footer.tsx
+                ├── components/         # 公共组件
+                │   ├── Navbar.tsx
+                │   ├── ScrollGuide.tsx
+                │   └── SectionDivider.tsx
+                ├── hooks/
+                │   └── useScrollReveal.ts
+                └── lib/
+                    └── utils.ts
 ```
 
 ## 添加新页面
