@@ -53,8 +53,9 @@ const defaultItems: PortfolioItem[] = [
     title: '《彝伦讲台》直播',
     category: '直播导演',
     description: '孔子研究院直播总导演，负责设备管理、人员调度与应急预案制定。',
-    type: 'video',
-    url: '',
+    type: 'image',
+    url: '../../../assets/images/彝伦讲堂导演.png',
+    link: 'https://mp.weixin.qq.com/s/33zXIX9UQ2DSl1cWWQJHlQ?click_id=12',
   },
 
 ];
