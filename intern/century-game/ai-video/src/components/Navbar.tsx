@@ -46,16 +46,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="font-display text-lg md:text-xl font-semibold tracking-tight text-[var(--morandi-text)]"
-            >
-              点点互动-AI实习生-庞筱妍个人简历
-            </a>
+            <div className="font-display text-lg md:text-xl font-semibold tracking-tight text-[var(--morandi-text)]">
+              <a
+                href="https://centurygame.zhiye.com/intern/detail?jobAdId=2821c194-7aa0-4863-b0b2-c3f6b55cc82d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--morandi-accent)] transition-colors duration-300"
+              >
+                点点互动-AI实习生
+              </a>
+              <span> 庞筱妍个人简历</span>
+            </div>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
