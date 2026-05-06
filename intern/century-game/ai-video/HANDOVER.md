@@ -25,9 +25,9 @@ cat ~/.ssh/id_ed25519.pub
 ssh -T git@github.com
 # 应显示：Hi Kira-Pang! You've successfully authenticated...
 
-# 4. clone 到指定路径
-git clone git@github.com:Kira-Pang/resume-pages.git /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages
-cd /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages/intern/century-game/ai-video
+# 4. clone 并进入项目
+git clone git@github.com:Kira-Pang/resume-pages.git <你想放的目录>/resume_pages
+cd <你想放的目录>/resume_pages/intern/century-game/ai-video
 ```
 
 ### 方式二：HTTPS（简单，但每次 push 需输 token）
@@ -36,9 +36,9 @@ cd /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages/intern/ce
 # 1. 在 GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
 #    生成一个 token，勾选 repo 权限
 
-# 2. clone 到指定路径
-git clone https://github.com/Kira-Pang/resume-pages.git /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages
-cd /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages/intern/century-game/ai-video
+# 2. clone 并进入项目
+git clone https://github.com/Kira-Pang/resume-pages.git <你想放的目录>/resume_pages
+cd <你想放的目录>/resume_pages/intern/century-game/ai-video
 
 # 3. 推送时用户名填你的 GitHub 用户名，密码填刚才生成的 token
 ```
@@ -133,7 +133,13 @@ ai-video/
 ## 部署流程
 
 1. 修改源代码
-2. `cd /Users/moonshot/Downloads/Kira/2026_job_year/fieldwork/resume_pages && git add -A && git commit -m "..." && git push origin main`
+2. 在项目根目录执行：
+   ```bash
+   cd <你的目录>/resume_pages
+   git add -A
+   git commit -m "..."
+   git push origin main
+   ```
 4. GitHub Actions **自动**完成以下操作（你不需要手动执行）：
    - 在 CI 中 `cd intern/century-game/ai-video && npm ci && npm run build`
    - 把构建产物 `intern/century-game/ai-video/dist/*` 复制到 `dist/intern/century-game/ai-video/`
