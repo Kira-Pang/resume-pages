@@ -21,7 +21,7 @@ const defaultItems: PortfolioItem[] = [
     category: 'AIGC',
     description: '融合家养宠物与新年元素，使用 Kimi、Doubao、Sora 等工具完成。上线微信后综合曝光 29 万+次。',
     type: 'image',
-    url: '../../../assets/images/AIGC红包封面.jpg',
+    url: '../../../assets/images/aigc2.jpg',
   },
   {
     id: '2',
