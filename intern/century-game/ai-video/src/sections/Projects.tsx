@@ -135,7 +135,7 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Left Column — first 4 projects */}
           <div className="space-y-4">
-            {projects.slice(0, 4).map((project, index) => (
+            {projects.slice(0, 3).map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -285,14 +285,14 @@ export default function Projects() {
 
           {/* Right Column — last 3 projects */}
           <div className="space-y-4">
-            {projects.slice(4).map((project, index) => (
+            {projects.slice(3).map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.6,
-                  delay: 0.08 * (index + 4),
+                  delay: 0.08 * (index + 3),
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="group"

@@ -62,7 +62,7 @@ export default function Hero() {
           className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-6"
         >
           <img
-            src="../../../assets/images/photo.jpg"
+            src="../../../assets/images/pxy2.jpg"
             alt="庞筱妍"
             className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2 border-[var(--morandi-border)] shadow-lg"
           />
