@@ -233,15 +233,26 @@ export default function Projects() {
                               核心行动
                             </h4>
                             <ul className="space-y-1.5">
-                              {project.actions.map((action, i) => (
-                                <li
-                                  key={i}
-                                  className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
-                                >
-                                  <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
-                                  {action}
-                                </li>
-                              ))}
+                              {project.actions.map((action, i) => {
+                                const colonIndex = action.indexOf('：');
+                                const hasColon = colonIndex !== -1;
+                                return (
+                                  <li
+                                    key={i}
+                                    className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
+                                  >
+                                    <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
+                                    {hasColon ? (
+                                      <>
+                                        <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
+                                        {action.slice(colonIndex + 1)}
+                                      </>
+                                    ) : (
+                                      action
+                                    )}
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
 
@@ -368,15 +379,26 @@ export default function Projects() {
                                 核心行动
                               </h4>
                               <ul className="space-y-1.5">
-                                {project.actions.map((action, i) => (
-                                  <li
-                                    key={i}
-                                    className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
-                                  >
-                                    <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
-                                    {action}
-                                  </li>
-                                ))}
+                                {project.actions.map((action, i) => {
+                                  const colonIndex = action.indexOf('：');
+                                  const hasColon = colonIndex !== -1;
+                                  return (
+                                    <li
+                                      key={i}
+                                      className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed flex items-start gap-2"
+                                    >
+                                      <span className="w-1 h-1 rounded-full bg-[var(--morandi-accent)]/50 mt-2 flex-shrink-0" />
+                                      {hasColon ? (
+                                        <>
+                                          <span className="font-semibold text-[var(--morandi-text)]">{action.slice(0, colonIndex + 1)}</span>
+                                          {action.slice(colonIndex + 1)}
+                                        </>
+                                      ) : (
+                                        action
+                                      )}
+                                    </li>
+                                  );
+                                })}
                               </ul>
                             </div>
 
