@@ -10,6 +10,7 @@ interface PortfolioItem {
   description: string;
   type: 'image' | 'video';
   url: string;
+  link?: string;
   file?: File;
 }
 
@@ -43,8 +44,9 @@ const defaultItems: PortfolioItem[] = [
     title: '《万里当歌》MV',
     category: '摄像',
     description: '"一带一路"十周年主题 MV，担任摄像与现场协调总负责人。',
-    type: 'video',
-    url: '',
+    type: 'image',
+    url: '../../../assets/images/万里当歌.png',
+    link: 'https://weibo.com/tv/show/1034:4976420208967759?from=old_pc_videoshow',
   },
   {
     id: '5',
@@ -194,7 +196,18 @@ export default function Portfolio() {
                   </span>
                 </div>
                 <h3 className="font-display text-lg font-semibold text-[var(--morandi-text)] mb-2">
-                  {item.title}
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[var(--morandi-accent)] transition-colors duration-300"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
                 </h3>
                 <p className="font-body text-sm text-[var(--morandi-text-secondary)] leading-relaxed line-clamp-3">
                   {item.description}
