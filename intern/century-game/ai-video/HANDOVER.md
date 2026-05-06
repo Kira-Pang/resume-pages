@@ -50,14 +50,15 @@ git config --global user.name "你的名字"
 git config --global user.email "你的邮箱@example.com"
 ```
 
-## 快速启动
+## 本地预览（可选）
 
 ```bash
 cd /path/to/resume_pages/intern/century-game/ai-video
 npm install
 npm run dev      # 开发服务器 http://localhost:5173
-npm run build    # 生产构建 → dist/ 目录
 ```
+
+> 实际部署不需要手动 build，push 后 GitHub Actions 自动完成。
 
 ## 项目结构
 
