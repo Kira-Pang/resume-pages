@@ -128,7 +128,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-[var(--morandi-bg)]">
-      <div ref={ref} className="max-w-5xl mx-auto px-6 md:px-12">
+      <div ref={ref} className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
