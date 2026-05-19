@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { ChevronDown, Sparkles, Code, Clapperboard, Video, Bot } from 'lucide-react';
+import { ChevronDown, Sparkles, Code, Clapperboard, Video, Newspaper } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -17,6 +17,34 @@ interface Project {
 const projects: Project[] = [
   {
     id: '1',
+    title: '「悟理功成」学院公众号运营',
+    tags: ['公众号运营', '内容策划', '用户增长', 'SOP制定', '活动策划', '数据分析'],
+    icon: Newspaper,
+    role: '运营负责人 / 内容策划',
+    actions: [
+      '公众号搭建：参与学院公众号"悟理功成"的创立，主导制定视觉风格规范与内容审核SOP，累计审核内容130篇，排版差错率控制在3%以下',
+      '内容运营：负责活动选题策划、图文排版以及用户互动，累计发布学院动态150+篇，阅读量4w+，单篇最高阅读量1700+',
+      '活动策划：策划并组织学院重大活动，协调学院4个部门，完成活动20余场。挖掘银杏季与考研热点，从0到1策划学院品牌活动，累计参与人数600+',
+    ],
+    result: '完成1200+用户增长，阅读量4w+，单篇最高1700+，活动累计参与600+',
+    abilities: ['公众号运营', '内容策划', '用户增长', 'SOP制定', '活动策划', '跨部门协调'],
+  },
+  {
+    id: '7',
+    title: '「主播说交大」视频号栏目运营',
+    tags: ['视频号运营', '栏目策划', '内容体系', '数据分析', '流程规范', '全平台分发'],
+    icon: Video,
+    role: '策划人 / 制作人',
+    actions: [
+      '内容体系搭建：作为团队核心成员，建立标准化视频流程，涵盖选题策划→脚本撰写→拍摄制作→数据分析的全流程规范，提升团队协作效率',
+      '栏目内容策划：组织策划多元栏目，设计二十四节气、校园新闻等6大主题，提升内容辨识度',
+      '数据分析驱动：追踪各栏目播放量、互动率等核心数据，根据数据反馈迭代内容策略',
+    ],
+    result: '累计200余条原创内容，全平台2000万+播放量，显著提升校园媒体传播力',
+    abilities: ['栏目策划', '内容体系搭建', '数据分析', '流程规范', '团队协作'],
+  },
+  {
+    id: '2',
     title: '基于多 AI 工具的红包封面生成',
     tags: ['AIGC', 'Prompt 工程', '图像生成', '多工具整合', '创意策划', '微信运营'],
     icon: Sparkles,
@@ -27,8 +55,22 @@ const projects: Project[] = [
       '封面合成：Sora 和 Nano Banana 生成完整的手绘风格红包封面',
       'Prompt调优：为解决 AIGC 常识性问题（爪子结构异常、牙齿拟人化等），通过精确位置描述与具体限制词等方式迭代优化，确保宠物形象可爱且高辨识度',
     ],
-    result: '上线微信后，综合曝光 29 万+次',
+    result: '产品实际使用率达64.1%，用户平均复用7.4次，拆取红包数6.5万+，总曝光量29万+',
     abilities: ['AI 工具运用', 'Prompt 工程', 'AIGC 工作流搭建', '视觉审美', '创意策划', '问题优化'],
+  },
+  {
+    id: '3',
+    title: '基于 KimiClaw 的实习信息收集工具',
+    tags: ['Python', 'SQLite', '信息收集', '自动化', '去重', '数据库设计', '流程优化'],
+    icon: Code,
+    role: '独立开发者',
+    actions: [
+      '动作技能化：利用 KimiClaw 总结搜集简历的核心动作（平台、筛选条件、岗位类型）形成可复用 Skills，显著降低信息搜集耗时',
+      '信息去重入库：引入 SQLite 对简历信息进行编码与持入库存储，自动过滤重复内容，确保每次收集均为全新实习信息',
+      '状态闭环管理：SQLite 新增投递状态列，实现从信息收集→筛选→投递→追踪的全流程状态管理',
+    ],
+    result: '积累在库467条有效岗位，单日岗位收集时长从60min缩短至20min',
+    abilities: ['Python 开发', '数据库设计', '自动化思维', '流程优化', '闭环设计'],
   },
   {
     id: '5',
@@ -43,63 +85,6 @@ const projects: Project[] = [
     ],
     result: '广告交付甲方并得到满意肯定',
     abilities: ['广告创意策划', '视频拍摄', '镜头语言', '替代方案设计', '甲方对接', '审美判断'],
-  },
-  {
-    id: '3',
-    title: '基于 Kimi Agent + Skills 的一对一简历生成工具',
-    tags: ['Kimi Agent', 'Skills 库', '自动化', 'Web 开发', 'PDF 生成', '精准匹配'],
-    icon: Bot,
-    role: '独立开发者',
-    actions: [
-      '数字分身构建：基于 Kimi Agent 构建个人数字分身，形成个人 Skills 库',
-      '岗位JD提取：接入 KimiClaw 实习信息搜集工具，根据选取的意向岗位，自动提取岗位 JD',
-      '智能匹配生成：精确匹配个人 Skill，形成该岗位的专属 Web 简历与 PDF 简历',
-      '统一审美规划：后续计划加入个人审美 Taste，确保简历生成在审美风格上保持一致性',
-    ],
-    result: '实现岗位 JD 到专属简历的自动化生成',
-    abilities: ['AI Agent 构建', '信息整合', '自动化', 'Web 开发', '审美控制'],
-  },
-  {
-    id: '2',
-    title: '基于 KimiClaw 的实习信息收集工具',
-    tags: ['Python', 'SQLite', '信息收集', '自动化', '去重', '数据库设计', '流程优化'],
-    icon: Code,
-    role: '独立开发者',
-    actions: [
-      '动作技能化：利用 KimiClaw 总结搜集简历的核心动作（平台、筛选条件、岗位类型）形成可复用 Skills，显著降低信息搜集耗时',
-      '信息去重入库：引入 SQLite 对简历信息进行编码与持入库存储，自动过滤重复内容，确保每次收集均为全新实习信息',
-      '状态闭环管理：SQLite 新增投递状态列，实现从信息收集→筛选→投递→追踪的全流程状态管理',
-      '交互升级规划：后续计划将 SQLite 状态管理迁移为 Web UI 形式，提升操作便捷性与可视化程度',
-    ],
-    result: '大幅减少搜集实习信息的时间；实现信息自动去重与状态管理',
-    abilities: ['Python 开发', '数据库设计', '自动化思维', '流程优化', '闭环设计'],
-  },
-  {
-    id: '4',
-    title: '基于 Kimi CLI 的 Vibe Coding',
-    tags: ['Kimi CLI', 'PyTorch', 'CUDA', 'MPS', '模型训练', '论文复现', '数据清洗', 'Lasso'],
-    icon: Code,
-    role: '独立开发者 / 研究者',
-    actions: [
-      '课设1-针对原项目的 CUDA 向 MPS 进行转换，完成 PyTorch 模型在 MacBook 上的训练适配',
-      '课设2-总结 Gu 的工作并对训练数据进行清洗，人工 review 无误后构建 Lasso 模型并进行训练',
-    ],
-    result: 'CUDA 转 MPS 后结果与原项目差异 < 1%；Lasso 模型结果与论文保持一致',
-    abilities: ['AI 辅助编程', '深度学习框架', '数据分析与建模', '论文复现', '数据清洗'],
-  },
-  {
-    id: '7',
-    title: '学校「主播说交大」视频号风格与制作流程设计',
-    tags: ['视频号', '栏目策划', '风格设计', '制作流程', '视频制作', '内容策划'],
-    icon: Video,
-    role: '策划人 / 制作人',
-    actions: [
-      '风格定位设计：负责视频号整体视觉风格定位，统一各栏目的色调、字体、包装风格，确保节目的辨识度',
-      '流程规范制定：建立标准化制作流程，从节目选题策划、脚本撰写、出镜录制到后期剪辑的全链路规范，目前已经支撑258条原创内容持续产出',
-      '栏目内容策划：组织策划二十四节气、校园新闻、新春特辑、相约会客厅等多元栏目，以轻松接地气的语言讲述时政热点与校园正能量故事',
-    ],
-    result: '',
-    abilities: ['栏目策划', '风格设计', '流程制定', '内容策划', '视频制作'],
   },
 ];
 
@@ -124,7 +109,7 @@ export default function Projects() {
             我的项目
           </h2>
           <p className="font-body text-base text-[var(--morandi-text-secondary)] mt-4 max-w-xl mx-auto">
-            从 AI 工作流搭建到商业视频制作，从自动化工具开发到学术研究
+            从公众号运营到内容体系搭建，从 AI 工具应用到自动化流程设计
           </p>
         </motion.div>
 

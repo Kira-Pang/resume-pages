@@ -3,27 +3,30 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const skillCategories = [
   {
-    title: 'AI 工具',
+    title: '运营与内容',
     skills: [
-      { name: 'Kimi / Kimi CLI', level: 95 },
-      { name: 'Doubao', level: 90 },
-      { name: 'Sora', level: 85 },
-      { name: 'Nano Banana', level: 85 },
-      { name: 'KimiClaw / Agent', level: 80 },
+      { name: '公众号运营', level: 95 },
+      { name: '内容策划', level: 90 },
+      { name: '用户增长', level: 85 },
+      { name: '活动策划', level: 85 },
+      { name: '数据分析', level: 80 },
     ],
   },
   {
-    title: '视频工具',
+    title: 'AI 与工具',
+    skills: [
+      { name: 'Kimi / Kimi CLI', level: 90 },
+      { name: 'Doubao / Sora', level: 80 },
+      { name: 'Nano Banana', level: 80 },
+      { name: 'KimiClaw / Agent', level: 75 },
+    ],
+  },
+  {
+    title: '视频与设计',
     skills: [
       { name: '剪映', level: 95 },
       { name: 'Premiere Pro', level: 60 },
-    ],
-  },
-  {
-    title: '图像与设计',
-    skills: [
       { name: 'Photoshop', level: 70 },
-      { name: 'Lightroom', level: 70 },
       { name: '秀米排版', level: 90 },
       { name: '创客贴', level: 85 },
     ],
@@ -32,8 +35,9 @@ const skillCategories = [
     title: '编程与数据',
     skills: [
       { name: 'Python', level: 80 },
-      { name: 'PyTorch', level: 75 },
-      { name: 'SQLite', level: 70 },
+      { name: 'PyTorch', level: 70 },
+      { name: 'SQLite', level: 75 },
+      { name: 'Excel', level: 85 },
     ],
   },
 ];
@@ -100,7 +104,7 @@ export default function Skills() {
             工具箱
           </h2>
           <p className="font-body text-base text-[var(--morandi-text-secondary)] mt-4 max-w-xl mx-auto">
-            从 AI 生成到视频剪辑，从图像精修到编程实现
+            从内容运营到数据分析，从 AI 工具到视频制作
           </p>
         </motion.div>
 

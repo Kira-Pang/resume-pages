@@ -1,27 +1,27 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { Sparkles, Camera, Palette, Brain } from 'lucide-react';
+import { TrendingUp, Users, Lightbulb, BarChart3 } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Sparkles,
-    title: 'AI 视觉生成',
-    desc: '熟练运用 Kimi、Doubao、Sora 等 AI 工具完成从 prompt 构建到成片的完整 AIGC 工作流',
+    icon: TrendingUp,
+    title: '内容运营',
+    desc: '主导公众号从0到1搭建，制定内容SOP与审核规范，累计运营内容280+篇，实现1200+用户增长与4w+阅读量',
   },
   {
-    icon: Camera,
-    title: '视频剪辑与拍摄',
-    desc: '熟练使用剪映进行剪辑、调色、包装，掌握多种镜头语言与拍摄技巧',
+    icon: Users,
+    title: '用户增长与活动策划',
+    desc: '策划组织20余场品牌活动，挖掘热点打造爆款内容，单篇最高阅读量1700+，活动累计参与600+人次',
   },
   {
-    icon: Palette,
-    title: '审美与创意',
-    desc: '对画面风格、色彩与构图敏感，能确保输出物审美一致性',
+    icon: Lightbulb,
+    title: '创意与审美',
+    desc: '对画面风格、色彩与构图敏感，能确保输出物审美一致性，独立完成商业广告全流程并获得甲方认可',
   },
   {
-    icon: Brain,
-    title: '学习力与适应力',
-    desc: '持续关注前沿 AI 技术动态，快速上手新工具并迭代工作流',
+    icon: BarChart3,
+    title: '数据驱动与工具思维',
+    desc: '善用数据分析优化运营策略，利用AI工具与编程思维提效，实现从信息收集到状态管理的全流程自动化',
   },
 ];
 
@@ -42,14 +42,14 @@ export default function About() {
             关于我
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[var(--morandi-text)] leading-tight mb-6">
-            用 AI 重新定义
+            用内容与数据
             <br />
-            视觉叙事的可能性
+            驱动产品增长
           </h2>
           <p className="font-body text-base md:text-lg text-[var(--morandi-text-secondary)] max-w-2xl leading-relaxed">
-            我是庞筱妍，一名兼具技术思维与审美敏感度的 AI 视频创作者。从光电信息科学到数据科学，
-            我始终在探索技术与艺术的交汇点。我相信，好的 AI 生成作品不仅是技术的堆砌，
-            更是创意与审美的精准表达。
+            我是庞筱妍，一名兼具数据思维与用户敏感度的产品运营实习生。从光电信息科学到数据科学，
+            我始终在探索技术与内容的交汇点。我相信，好的运营不仅是内容的搬运，
+            更是基于数据的精准表达与用户的深度连接。
           </p>
         </motion.div>
 
@@ -92,8 +92,8 @@ export default function About() {
           className="mt-16 md:mt-24 pt-12 border-t border-[var(--morandi-border)]"
         >
           <blockquote className="font-display text-xl md:text-2xl text-[var(--morandi-text)] italic leading-relaxed max-w-3xl">
-            "习惯以问题识别 → 方案设计 → 迭代优化的方式推进项目，
-            善于在限制条件下寻找替代方案，将创意转化为可交付的视觉作品。"
+            "习惯以数据洞察 → 内容策划 → 效果迭代的方式推进项目，
+            善于在限制条件下寻找替代方案，将创意转化为可量化的运营成果。"
           </blockquote>
         </motion.div>
       </div>

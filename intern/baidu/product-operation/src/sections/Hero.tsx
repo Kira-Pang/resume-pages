@@ -80,7 +80,7 @@ export default function Hero() {
         >
           澳门大学数据科学硕士 · 北京交通大学本科
           <br />
-          <span className="text-[var(--morandi-accent)]">AIGC 工作流搭建者 · 视觉叙事创作者</span>
+          <span className="text-[var(--morandi-accent)]">内容运营 · 用户增长 · 数据驱动</span>
         </motion.p>
 
         {/* CTA */}
