@@ -6,7 +6,7 @@ const highlights = [
   {
     icon: TrendingUp,
     title: '内容运营',
-    desc: '主导公众号从0到1搭建，制定内容SOP与审核规范，累计运营内容280+篇，实现1200+用户增长与4w+阅读量',
+    desc: '主导公众号制定内容与审核SOP，累计运营内容150+篇，实现1200+用户增长',
   },
   {
     icon: Users,
