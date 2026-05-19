@@ -33,12 +33,9 @@ export default function Contact() {
           <span className="text-xs font-body tracking-widest uppercase text-[var(--morandi-accent)] mb-4 block">
             联系
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight mb-6">
-            让我们开始对话
+          <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight">
+            联系方式
           </h2>
-          <p className="font-body text-base text-[var(--morandi-dark-text-secondary)] max-w-xl mx-auto leading-relaxed">
-            欢迎随时与我联系
-          </p>
         </motion.div>
 
         {/* Contact Cards */}
