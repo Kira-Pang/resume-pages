@@ -47,7 +47,7 @@ export default function About() {
             驱动产品增长
           </h2>
           <p className="font-body text-base md:text-lg text-[var(--morandi-text-secondary)] max-w-2xl leading-relaxed">
-            我是庞筱妍，一名兼具数据思维与用户敏感度的产品运营实习生。从光电信息科学到数据科学，
+            我是庞筱妍，从光电信息科学到数据科学，
             我始终在探索技术与内容的交汇点。我相信，好的运营不仅是内容的搬运，
             更是基于数据的精准表达与用户的深度连接。
           </p>
