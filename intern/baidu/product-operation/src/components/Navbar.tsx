@@ -49,12 +49,12 @@ export default function Navbar() {
             {/* Logo */}
             <div className="font-display text-lg md:text-xl font-semibold tracking-tight text-[var(--morandi-text)]">
               <a
-                href="https://centurygame.zhiye.com/intern/detail?jobAdId=2821c194-7aa0-4863-b0b2-c3f6b55cc82d"
+                href="https://talent.baidu.com/jobs/detail/xxx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[var(--morandi-accent)] hover:underline transition-colors duration-300"
               >
-                点点互动-AI实习生
+                百度-产品运营实习生
               </a>
               <span> 庞筱妍简历</span>
             </div>
