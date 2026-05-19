@@ -34,10 +34,18 @@ jobs:
           npm ci
           npm run build
 
+      - name: Install and build baidu-product-operation
+        run: |
+          cd intern/baidu/product-operation
+          npm ci
+          npm run build
+
       - name: Prepare dist
         run: |
           mkdir -p dist/intern/century-game/ai-video
           cp -r intern/century-game/ai-video/dist/* dist/intern/century-game/ai-video/
+          mkdir -p dist/intern/baidu/product-operation
+          cp -r intern/baidu/product-operation/dist/* dist/intern/baidu/product-operation/
           cp index.html dist/
           cp -r assets dist/ 2>/dev/null || true
 
