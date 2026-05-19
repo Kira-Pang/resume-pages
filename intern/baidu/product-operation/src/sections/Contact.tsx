@@ -12,7 +12,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: '所在地',
-    value: '澳门 / 北京',
+    value: '北京',
     href: null,
   },
 ];
