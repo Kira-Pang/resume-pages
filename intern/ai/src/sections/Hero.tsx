@@ -87,24 +87,6 @@ export default function Hero() {
 
       {/* Floating Geometric Lines */}
       <motion.div
-        className="absolute top-[15%] left-[8%] w-40 h-40 opacity-[0.25]"
-        animate={{
-          rotate: [0, 360],
-        }}
-        transition={{
-          duration: 60,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      >
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <circle cx="50" cy="50" r="45" stroke="var(--morandi-accent)" strokeWidth="0.6" fill="none" />
-          <circle cx="50" cy="50" r="30" stroke="var(--morandi-text-secondary)" strokeWidth="0.5" fill="none" />
-          <line x1="50" y1="5" x2="50" y2="95" stroke="var(--morandi-accent)" strokeWidth="0.4" />
-          <line x1="5" y1="50" x2="95" y2="50" stroke="var(--morandi-accent)" strokeWidth="0.4" />
-        </svg>
-      </motion.div>
-      <motion.div
         className="absolute bottom-[25%] right-[12%] w-28 h-28 opacity-[0.2]"
         animate={{
           rotate: [360, 0],
