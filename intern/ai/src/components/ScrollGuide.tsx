@@ -67,8 +67,8 @@ export default function ScrollGuide() {
               alt=""
               className={`transition-all duration-500 object-contain ${
                 i === activeIndex
-                  ? 'w-7 h-7 opacity-100'
-                  : 'w-6 h-6 opacity-60 group-hover:opacity-90'
+                  ? 'w-8 h-8 opacity-100'
+                  : 'w-7 h-7 opacity-70 group-hover:opacity-100'
               }`}
             />
             {/* Label on hover */}
