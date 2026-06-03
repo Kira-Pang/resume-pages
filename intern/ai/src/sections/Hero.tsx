@@ -41,6 +41,86 @@ export default function Hero() {
         }}
       />
 
+      {/* Abstract Wave Lines — Minimalist Art */}
+      <svg
+        className="absolute bottom-0 left-0 right-0 w-full h-[350px] opacity-[0.35] pointer-events-none"
+        viewBox="0 0 1440 350"
+        preserveAspectRatio="none"
+      >
+        <motion.path
+          d="M0,120 C240,60 480,180 720,120 C960,60 1200,180 1440,120"
+          stroke="var(--morandi-accent)"
+          strokeWidth="1.2"
+          fill="none"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 3, ease: 'easeInOut', delay: 1 }}
+        />
+        <motion.path
+          d="M0,180 C360,120 720,240 1080,180 C1260,150 1350,210 1440,180"
+          stroke="var(--morandi-accent)"
+          strokeWidth="0.8"
+          fill="none"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 4, ease: 'easeInOut', delay: 1.5 }}
+        />
+        <motion.path
+          d="M0,240 C480,280 960,200 1440,240"
+          stroke="var(--morandi-text-secondary)"
+          strokeWidth="0.6"
+          fill="none"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 5, ease: 'easeInOut', delay: 2 }}
+        />
+        <motion.path
+          d="M0,280 C360,320 720,260 1080,290 C1260,305 1350,270 1440,280"
+          stroke="var(--morandi-accent)"
+          strokeWidth="0.4"
+          fill="none"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 0.6 }}
+          transition={{ duration: 6, ease: 'easeInOut', delay: 2.5 }}
+        />
+      </svg>
+
+      {/* Floating Geometric Lines */}
+      <motion.div
+        className="absolute top-[15%] left-[8%] w-40 h-40 opacity-[0.25]"
+        animate={{
+          rotate: [0, 360],
+        }}
+        transition={{
+          duration: 60,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      >
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <circle cx="50" cy="50" r="45" stroke="var(--morandi-accent)" strokeWidth="0.6" fill="none" />
+          <circle cx="50" cy="50" r="30" stroke="var(--morandi-text-secondary)" strokeWidth="0.5" fill="none" />
+          <line x1="50" y1="5" x2="50" y2="95" stroke="var(--morandi-accent)" strokeWidth="0.4" />
+          <line x1="5" y1="50" x2="95" y2="50" stroke="var(--morandi-accent)" strokeWidth="0.4" />
+        </svg>
+      </motion.div>
+      <motion.div
+        className="absolute bottom-[25%] right-[12%] w-28 h-28 opacity-[0.2]"
+        animate={{
+          rotate: [360, 0],
+        }}
+        transition={{
+          duration: 80,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      >
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <rect x="20" y="20" width="60" height="60" stroke="var(--morandi-text-secondary)" strokeWidth="0.6" fill="none" transform="rotate(45 50 50)" />
+          <rect x="35" y="35" width="30" height="30" stroke="var(--morandi-accent)" strokeWidth="0.5" fill="none" transform="rotate(45 50 50)" />
+        </svg>
+      </motion.div>
+
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center">
         {/* Eyebrow */}
         <motion.div
