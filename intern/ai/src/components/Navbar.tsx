@@ -54,7 +54,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="text-[var(--morandi-accent)] hover:underline transition-colors duration-300"
               >
-                百度-产品运营实习生
+                百度-AI实习生
               </a>
               <span> 庞筱妍简历</span>
             </div>

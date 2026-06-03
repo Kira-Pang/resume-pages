@@ -6,7 +6,7 @@ export default function Footer() {
           © 2026 庞筱妍. All rights reserved.
         </p>
         <p className="font-body text-xs text-[var(--morandi-dark-text-secondary)]">
-          产品运营实习生 · 澳门大学
+          AI实习生 · 澳门大学
         </p>
       </div>
     </footer>
