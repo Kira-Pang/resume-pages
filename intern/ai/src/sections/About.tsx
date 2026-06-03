@@ -42,7 +42,7 @@ export default function About() {
             关于我
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[var(--morandi-text)] leading-tight mb-6">
-            AI是我的创作延伸
+            AI是我的"哆啦A梦"
           </h2>
           <p className="font-body text-base md:text-lg text-[var(--morandi-text-secondary)] max-w-2xl leading-relaxed">
             从光电信息科学到数据科学，我一直在探索技术如何放大创意。
