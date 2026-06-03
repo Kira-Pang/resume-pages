@@ -48,15 +48,6 @@ export default function Hero() {
         preserveAspectRatio="none"
       >
         <motion.path
-          d="M0,120 C240,60 480,180 720,120 C960,60 1200,180 1440,120"
-          stroke="var(--morandi-accent)"
-          strokeWidth="1.2"
-          fill="none"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 3, ease: 'easeInOut', delay: 1 }}
-        />
-        <motion.path
           d="M0,180 C360,120 720,240 1080,180 C1260,150 1350,210 1440,180"
           stroke="var(--morandi-accent)"
           strokeWidth="0.8"
