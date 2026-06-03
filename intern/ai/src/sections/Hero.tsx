@@ -93,13 +93,13 @@ export default function Hero() {
                 filter: `drop-shadow(0 0 ${star.size * 0.8}px rgba(184, 115, 51, 0.8)) drop-shadow(0 0 ${star.size * 2}px rgba(184, 115, 51, 0.45))`,
               }}
             >
-              {/* Four slender sparkle rays — closer to ✨ */}
-              <path d="M12 0 L12.6 9 L12 10.5 L11.4 9 Z" fill="var(--v1-accent)"/>
-              <path d="M12 24 L11.4 15 L12 13.5 L12.6 15 Z" fill="var(--v1-accent)"/>
-              <path d="M0 12 L9 11.4 L10.5 12 L9 12.6 Z" fill="var(--v1-accent)"/>
-              <path d="M24 12 L15 12.6 L13.5 12 L15 11.4 Z" fill="var(--v1-accent)"/>
-              {/* Tiny center diamond */}
-              <path d="M12 10.2 L12.8 12 L12 13.8 L11.2 12 Z" fill="var(--v1-accent)"/>
+              {/* Four rounded sparkle rays */}
+              <line x1="12" y1="1" x2="12" y2="10" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="12" y1="14" x2="12" y2="23" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="1" y1="12" x2="10" y2="12" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="14" y1="12" x2="23" y2="12" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
+              {/* Center glow dot */}
+              <circle cx="12" cy="12" r="2.8" fill="var(--v1-accent)"/>
             </svg>
           </div>
         ))}
