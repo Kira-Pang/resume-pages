@@ -140,24 +140,6 @@ export default function Hero() {
         />
       </svg>
 
-      {/* Floating Geometric Lines */}
-      <motion.div
-        className="absolute bottom-[25%] right-[12%] w-28 h-28 opacity-[0.2]"
-        animate={{
-          rotate: [360, 0],
-        }}
-        transition={{
-          duration: 80,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      >
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <rect x="20" y="20" width="60" height="60" stroke="var(--morandi-text-secondary)" strokeWidth="0.6" fill="none" transform="rotate(45 50 50)" />
-          <rect x="35" y="35" width="30" height="30" stroke="var(--morandi-accent)" strokeWidth="0.5" fill="none" transform="rotate(45 50 50)" />
-        </svg>
-      </motion.div>
-
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center">
         {/* Eyebrow */}
         <motion.div
