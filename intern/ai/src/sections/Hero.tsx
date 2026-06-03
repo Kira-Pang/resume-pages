@@ -1,32 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { useMemo } from 'react';
-
-interface Star {
-  id: number;
-  left: number;
-  size: number;
-  duration: number;
-  delay: number;
-  startOpacity: number;
-  floatHeight: number;
-  drift: number;
-}
 
 export default function Hero() {
-  const stars = useMemo<Star[]>(() => {
-    return Array.from({ length: 45 }, (_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      size: 10 + Math.random() * 18,
-      duration: 12 + Math.random() * 18,
-      delay: Math.random() * 20,
-      startOpacity: 0.55 + Math.random() * 0.4,
-      floatHeight: -(35 + Math.random() * 65),
-      drift: (Math.random() - 0.5) * 50,
-    }));
-  }, []);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--morandi-bg)]">
       {/* Subtle Background Pattern */}
@@ -65,45 +40,6 @@ export default function Hero() {
           ease: 'easeInOut',
         }}
       />
-
-      {/* Rising Star Particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {stars.map((star) => (
-          <div
-            key={star.id}
-            className="absolute"
-            style={{
-              left: `${star.left}%`,
-              bottom: '-8px',
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              '--start-opacity': star.startOpacity,
-              '--float-height': `${star.floatHeight}vh`,
-              '--drift': `${star.drift}px`,
-              animation: `star-float-up ${star.duration}s linear ${star.delay}s infinite`,
-              willChange: 'transform, opacity, filter',
-            } as React.CSSProperties}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              style={{
-                width: '100%',
-                height: '100%',
-                overflow: 'visible',
-                filter: `drop-shadow(0 0 ${star.size * 0.8}px rgba(184, 115, 51, 0.8)) drop-shadow(0 0 ${star.size * 2}px rgba(184, 115, 51, 0.45))`,
-              }}
-            >
-              {/* Four rounded sparkle rays */}
-              <line x1="12" y1="1" x2="12" y2="10" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
-              <line x1="12" y1="14" x2="12" y2="23" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
-              <line x1="1" y1="12" x2="10" y2="12" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
-              <line x1="14" y1="12" x2="23" y2="12" stroke="var(--v1-accent)" strokeWidth="2.2" strokeLinecap="round"/>
-              {/* Center glow dot */}
-              <circle cx="12" cy="12" r="2.8" fill="var(--v1-accent)"/>
-            </svg>
-          </div>
-        ))}
-      </div>
 
       {/* Abstract Wave Lines — Minimalist Art */}
       <svg

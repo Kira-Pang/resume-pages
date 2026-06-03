@@ -160,33 +160,6 @@ html {
 }
 
 /* ============================================================
-   STAR PARTICLE ANIMATION
-   ============================================================ */
-@keyframes star-float-up {
-  0% {
-    transform: translateY(0) translateX(0) scale(1);
-    opacity: var(--start-opacity);
-    filter: blur(0px);
-  }
-  25% {
-    opacity: calc(var(--start-opacity) * 0.8);
-  }
-  50% {
-    opacity: calc(var(--start-opacity) * 0.45);
-    filter: blur(0.5px);
-  }
-  75% {
-    opacity: calc(var(--start-opacity) * 0.15);
-    filter: blur(1.5px);
-  }
-  100% {
-    transform: translateY(var(--float-height)) translateX(var(--drift)) scale(0.3);
-    opacity: 0;
-    filter: blur(3px);
-  }
-}
-
-/* ============================================================
    UTILITY CLASSES
    ============================================================ */
 @layer utilities {
