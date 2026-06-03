@@ -6,9 +6,7 @@ const { chromium } = require('playwright');
   
   const failedUrls = [];
   page.on('response', res => {
-    if (res.status() === 404) {
-      failedUrls.push(res.url());
-    }
+    if (res.status() === 404) failedUrls.push(res.url());
   });
   
   await page.goto('https://kira-pang.github.io/resume-pages/intern/ai/', { waitUntil: 'networkidle' });
@@ -25,11 +23,7 @@ const { chromium } = require('playwright');
   
   console.log('=== 404 URLs ===');
   [...new Set(failedUrls)].forEach(u => console.log(u));
-  
-  // Check sections visibility
-  const sections = await page.$$eval('section', els => els.map(e => ({ id: e.id, text: e.textContent?.substring(0, 50) })));
-  console.log('\n=== Sections ===');
-  sections.forEach(s => console.log(`${s.id}: ${s.text}`));
+  if (failedUrls.length === 0) console.log('None - all resources loaded!');
   
   await browser.close();
 })();
