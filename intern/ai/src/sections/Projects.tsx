@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { ChevronDown, Sparkles, Code, Clapperboard, Video, Newspaper } from 'lucide-react';
+import { ChevronDown, Sparkles, Code, Clapperboard, Video, Newspaper, Bot } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -57,6 +57,21 @@ const projects: Project[] = [
     ],
     result: '产品实际使用率达64.1%，用户平均复用7.4次，拆取红包数6.5万+，总曝光量29万+',
     abilities: ['AI 工具运用', 'Prompt 工程', 'AIGC 工作流搭建', '视觉审美', '创意策划', '问题优化'],
+  },
+  {
+    id: '6',
+    title: '基于 Kimi Agent + Skills 的一对一简历生成工具',
+    tags: ['Kimi Agent', 'Skills 库', '自动化', 'Web 开发', 'PDF 生成', '精准匹配'],
+    icon: Bot,
+    role: '独立开发者',
+    actions: [
+      '数字分身构建：基于 Kimi Agent 构建个人数字分身，形成个人 Skills 库',
+      '岗位JD提取：接入 KimiClaw 实习信息搜集工具，根据选取的意向岗位，自动提取岗位 JD',
+      '智能匹配生成：精确匹配个人 Skill，形成该岗位的专属 Web 简历与 PDF 简历',
+      '统一审美规划：后续计划加入个人审美 Taste，确保简历生成在审美风格上保持一致性',
+    ],
+    result: '实现岗位 JD 到专属简历的自动化生成',
+    abilities: ['AI Agent 构建', '信息整合', '自动化', 'Web 开发', '审美控制'],
   },
   {
     id: '3',
