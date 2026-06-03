@@ -4,8 +4,8 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 const sections = [
   { id: 'about', label: '关于' },
   { id: 'projects', label: '项目' },
-  { id: 'skills', label: '技能' },
   { id: 'portfolio', label: '作品' },
+  { id: 'skills', label: '技能' },
   { id: 'experience', label: '经历' },
   { id: 'contact', label: '联系' },
 ];
