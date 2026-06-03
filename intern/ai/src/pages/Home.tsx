@@ -20,9 +20,9 @@ export default function Home() {
         <SectionDivider type="wave" />
         <About />
         <SectionDivider type="curve" flip />
-        <Skills />
-        <SectionDivider type="wave" />
         <Projects />
+        <SectionDivider type="wave" />
+        <Skills />
         <SectionDivider type="wave" />
         <Portfolio />
         <SectionDivider type="curve" flip />
