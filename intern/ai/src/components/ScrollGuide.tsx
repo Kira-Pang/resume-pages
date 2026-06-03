@@ -10,34 +10,6 @@ const sections = [
   { id: 'contact', label: '联系' },
 ];
 
-/** 荷兰猪简笔画图标 — 正面视角 */
-function GuineaPigIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      {/* 左耳 */}
-      <path d="M7 6.5 Q5.5 3.5 8.5 5.5" />
-      {/* 右耳 */}
-      <path d="M17 6.5 Q18.5 3.5 15.5 5.5" />
-      {/* 头+身体 圆润轮廓 */}
-      <path d="M5.5 11.5 C5.5 6.5 9 6 12 6 C15 6 18.5 6.5 18.5 11.5 C18.5 17.5 15.5 20 12 20 C8.5 20 5.5 17.5 5.5 11.5 Z" />
-      {/* 左眼 */}
-      <circle cx="9.5" cy="10" r="0.55" fill="currentColor" stroke="none" />
-      {/* 右眼 */}
-      <circle cx="14.5" cy="10" r="0.55" fill="currentColor" stroke="none" />
-      {/* 鼻子 */}
-      <ellipse cx="12" cy="12.8" rx="0.9" ry="0.6" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 export default function ScrollGuide() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { scrollYProgress } = useScroll();
@@ -85,23 +57,29 @@ export default function ScrollGuide() {
             onClick={() => handleClick(sec.id)}
             className="group relative flex items-center justify-center"
           >
-            {/* Guinea Pig Icon */}
-            <GuineaPigIcon
-              className={`transition-all duration-500 ${
+            {/* Guinea Pig PNG */}
+            <img
+              src={
                 i === activeIndex
-                  ? 'w-6 h-6 text-[var(--morandi-accent)]'
-                  : 'w-5 h-5 text-[var(--morandi-border)] group-hover:text-[var(--morandi-text-secondary)]'
+                  ? '../../assets/images/guinea-pig-copper.png'
+                  : '../../assets/images/guinea-pig-gray.png'
+              }
+              alt=""
+              className={`transition-all duration-500 object-contain ${
+                i === activeIndex
+                  ? 'w-7 h-7 opacity-100'
+                  : 'w-6 h-6 opacity-60 group-hover:opacity-90'
               }`}
             />
             {/* Label on hover */}
-            <span className="absolute right-7 text-xs font-body text-[var(--morandi-text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            <span className="absolute right-8 text-xs font-body text-[var(--morandi-text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
               {sec.label}
             </span>
             {/* Active glow ring */}
             {i === activeIndex && (
               <motion.span
                 layoutId="activeGlow"
-                className="absolute w-8 h-8 rounded-full border border-[var(--morandi-accent)]/25"
+                className="absolute w-9 h-9 rounded-full border border-[var(--morandi-accent)]/20"
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               />
             )}
