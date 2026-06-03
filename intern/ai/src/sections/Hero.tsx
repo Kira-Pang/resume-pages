@@ -18,7 +18,7 @@ export default function Hero() {
     return Array.from({ length: 45 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 5 + Math.random() * 9,
+      size: 10 + Math.random() * 18,
       duration: 12 + Math.random() * 18,
       delay: Math.random() * 20,
       startOpacity: 0.55 + Math.random() * 0.4,
