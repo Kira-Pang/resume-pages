@@ -18,10 +18,10 @@ export default function Hero() {
     return Array.from({ length: 45 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 1.5 + Math.random() * 2.5,
+      size: 5 + Math.random() * 9,
       duration: 12 + Math.random() * 18,
       delay: Math.random() * 20,
-      startOpacity: 0.35 + Math.random() * 0.45,
+      startOpacity: 0.55 + Math.random() * 0.4,
       floatHeight: -(35 + Math.random() * 65),
       drift: (Math.random() - 0.5) * 50,
     }));
@@ -71,14 +71,15 @@ export default function Hero() {
         {stars.map((star) => (
           <div
             key={star.id}
-            className="absolute rounded-full"
+            className="absolute"
             style={{
               left: `${star.left}%`,
-              bottom: '-4px',
+              bottom: '-6px',
               width: `${star.size}px`,
               height: `${star.size}px`,
               backgroundColor: 'var(--v1-accent)',
-              boxShadow: `0 0 ${star.size * 3}px ${star.size}px rgba(184, 115, 51, 0.25)`,
+              clipPath: 'polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%)',
+              filter: `drop-shadow(0 0 ${star.size * 1.2}px rgba(184, 115, 51, 0.6)) drop-shadow(0 0 ${star.size * 2.5}px rgba(184, 115, 51, 0.3))`,
               '--start-opacity': star.startOpacity,
               '--float-height': `${star.floatHeight}vh`,
               '--drift': `${star.drift}px`,
