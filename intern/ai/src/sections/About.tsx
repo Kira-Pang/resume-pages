@@ -48,7 +48,7 @@ export default function About() {
             从光电信息科学到数据科学，我一直在探索技术如何放大创意。
             我深度使用 Kimi、Doubao、Sora 等 AI 工具，构建了从 AIGC 创作到自动化信息收集的完整工作流。
             数据背景让我理解 AI 的能力边界，内容创作经验让我知道什么能打动人。
-            对我来说，AI 不是替代思考的工具，而是把想法变成现实的加速器。
+            对我来说，<em className="italic">AI 不是替代思考的工具，而是把想法变成现实的加速器。</em>
           </p>
         </motion.div>
 
