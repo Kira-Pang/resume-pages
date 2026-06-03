@@ -3,6 +3,15 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const skillCategories = [
   {
+    title: 'AI 与工具',
+    skills: [
+      { name: 'Kimi / Kimi CLI', level: 90 },
+      { name: 'Doubao / Sora', level: 80 },
+      { name: 'Nano Banana', level: 80 },
+      { name: 'KimiClaw / Agent', level: 75 },
+    ],
+  },
+  {
     title: '运营与内容',
     skills: [
       { name: '公众号运营', level: 95 },
@@ -10,15 +19,6 @@ const skillCategories = [
       { name: '用户增长', level: 85 },
       { name: '活动策划', level: 85 },
       { name: '数据分析', level: 80 },
-    ],
-  },
-  {
-    title: 'AI 与工具',
-    skills: [
-      { name: 'Kimi / Kimi CLI', level: 90 },
-      { name: 'Doubao / Sora', level: 80 },
-      { name: 'Nano Banana', level: 80 },
-      { name: 'KimiClaw / Agent', level: 75 },
     ],
   },
   {

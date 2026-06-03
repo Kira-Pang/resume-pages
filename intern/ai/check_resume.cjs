@@ -12,7 +12,6 @@ const { chromium } = require('playwright');
   await page.goto('https://kira-pang.github.io/resume-pages/intern/ai/', { waitUntil: 'networkidle' });
   await page.waitForTimeout(2000);
   
-  // Scroll to trigger animations
   for (let i = 0; i < 12; i++) {
     await page.evaluate(() => window.scrollBy(0, 800));
     await page.waitForTimeout(300);
@@ -23,7 +22,13 @@ const { chromium } = require('playwright');
   
   console.log('=== 404 URLs ===');
   [...new Set(failedUrls)].forEach(u => console.log(u));
-  if (failedUrls.length === 0) console.log('None - all resources loaded!');
+  if (failedUrls.length === 0) console.log('None');
+  
+  // Check for baidu references
+  const html = await page.content();
+  const hasBaidu = html.toLowerCase().includes('baidu') || html.includes('百度');
+  console.log('\n=== Baidu references ===');
+  console.log(hasBaidu ? 'FOUND' : 'None');
   
   await browser.close();
 })();
