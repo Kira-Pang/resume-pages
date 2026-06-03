@@ -42,7 +42,7 @@ export default function ScrollGuide() {
   return (
     <div className="fixed right-5 md:right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center">
       {/* Vertical line */}
-      <div className="relative w-[1.5px] h-56 bg-[var(--morandi-border)]/40">
+      <div className="relative w-[1.5px] h-72 bg-[var(--morandi-border)]/40">
         <motion.div
           className="absolute top-0 left-0 w-full bg-[var(--morandi-accent)]/30 origin-top"
           style={{ scaleY: smoothProgress, height: '100%' }}
@@ -67,8 +67,8 @@ export default function ScrollGuide() {
               alt=""
               className={`transition-all duration-500 object-contain ${
                 i === activeIndex
-                  ? 'w-8 h-8 opacity-100'
-                  : 'w-7 h-7 opacity-70 group-hover:opacity-100'
+                  ? 'w-12 h-12 opacity-100'
+                  : 'w-10 h-10 opacity-60 group-hover:opacity-100'
               }`}
             />
             {/* Label on hover */}
@@ -79,7 +79,7 @@ export default function ScrollGuide() {
             {i === activeIndex && (
               <motion.span
                 layoutId="activeGlow"
-                className="absolute w-9 h-9 rounded-full border border-[var(--morandi-accent)]/20"
+                className="absolute w-14 h-14 rounded-full border border-[var(--morandi-accent)]/20"
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               />
             )}
