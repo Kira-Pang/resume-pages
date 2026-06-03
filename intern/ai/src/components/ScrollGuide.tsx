@@ -3,11 +3,40 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 
 const sections = [
   { id: 'about', label: '关于' },
+  { id: 'projects', label: '项目' },
   { id: 'skills', label: '技能' },
   { id: 'portfolio', label: '作品' },
   { id: 'experience', label: '经历' },
   { id: 'contact', label: '联系' },
 ];
+
+/** 荷兰猪简笔画图标 — 正面视角 */
+function GuineaPigIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* 左耳 */}
+      <path d="M7 6.5 Q5.5 3.5 8.5 5.5" />
+      {/* 右耳 */}
+      <path d="M17 6.5 Q18.5 3.5 15.5 5.5" />
+      {/* 头+身体 圆润轮廓 */}
+      <path d="M5.5 11.5 C5.5 6.5 9 6 12 6 C15 6 18.5 6.5 18.5 11.5 C18.5 17.5 15.5 20 12 20 C8.5 20 5.5 17.5 5.5 11.5 Z" />
+      {/* 左眼 */}
+      <circle cx="9.5" cy="10" r="0.55" fill="currentColor" stroke="none" />
+      {/* 右眼 */}
+      <circle cx="14.5" cy="10" r="0.55" fill="currentColor" stroke="none" />
+      {/* 鼻子 */}
+      <ellipse cx="12" cy="12.8" rx="0.9" ry="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export default function ScrollGuide() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,17 +68,16 @@ export default function ScrollGuide() {
   };
 
   return (
-    <div className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center">
-      {/* Vertical line — thicker */}
-      <div className="relative w-[1.5px] h-48 bg-[var(--morandi-border)]/40">
-        {/* Animated progress fill */}
+    <div className="fixed right-5 md:right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center">
+      {/* Vertical line */}
+      <div className="relative w-[1.5px] h-56 bg-[var(--morandi-border)]/40">
         <motion.div
-          className="absolute top-0 left-0 w-full bg-[var(--morandi-accent)]/35 origin-top"
+          className="absolute top-0 left-0 w-full bg-[var(--morandi-accent)]/30 origin-top"
           style={{ scaleY: smoothProgress, height: '100%' }}
         />
       </div>
 
-      {/* Section dots */}
+      {/* Section icons */}
       <div className="absolute inset-0 flex flex-col justify-between items-center py-0">
         {sections.map((sec, i) => (
           <button
@@ -57,23 +85,23 @@ export default function ScrollGuide() {
             onClick={() => handleClick(sec.id)}
             className="group relative flex items-center justify-center"
           >
-            {/* Dot — thicker */}
-            <span
-              className={`block rounded-full transition-all duration-500 ${
+            {/* Guinea Pig Icon */}
+            <GuineaPigIcon
+              className={`transition-all duration-500 ${
                 i === activeIndex
-                  ? 'w-[9px] h-[9px] bg-[var(--morandi-accent)]'
-                  : 'w-[7px] h-[7px] bg-[var(--morandi-border)] group-hover:bg-[var(--morandi-text-secondary)]'
+                  ? 'w-6 h-6 text-[var(--morandi-accent)]'
+                  : 'w-5 h-5 text-[var(--morandi-border)] group-hover:text-[var(--morandi-text-secondary)]'
               }`}
             />
             {/* Label on hover */}
-            <span className="absolute right-5 text-xs font-body text-[var(--morandi-text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            <span className="absolute right-7 text-xs font-body text-[var(--morandi-text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
               {sec.label}
             </span>
-            {/* Active glow */}
+            {/* Active glow ring */}
             {i === activeIndex && (
               <motion.span
                 layoutId="activeGlow"
-                className="absolute w-5 h-5 rounded-full bg-[var(--morandi-accent)]/20"
+                className="absolute w-8 h-8 rounded-full border border-[var(--morandi-accent)]/25"
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               />
             )}
