@@ -1,0 +1,35 @@
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  
+  const failedUrls = [];
+  page.on('response', res => {
+    if (res.status() === 404) {
+      failedUrls.push(res.url());
+    }
+  });
+  
+  await page.goto('https://kira-pang.github.io/resume-pages/intern/ai/', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(2000);
+  
+  // Scroll to trigger animations
+  for (let i = 0; i < 12; i++) {
+    await page.evaluate(() => window.scrollBy(0, 800));
+    await page.waitForTimeout(300);
+  }
+  await page.waitForTimeout(1000);
+  
+  await page.screenshot({ path: '/tmp/resume_check.png', fullPage: true });
+  
+  console.log('=== 404 URLs ===');
+  [...new Set(failedUrls)].forEach(u => console.log(u));
+  
+  // Check sections visibility
+  const sections = await page.$$eval('section', els => els.map(e => ({ id: e.id, text: e.textContent?.substring(0, 50) })));
+  console.log('\n=== Sections ===');
+  sections.forEach(s => console.log(`${s.id}: ${s.text}`));
+  
+  await browser.close();
+})();

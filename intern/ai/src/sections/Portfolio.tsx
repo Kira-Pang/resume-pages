@@ -21,7 +21,7 @@ const defaultItems: PortfolioItem[] = [
     category: 'AIGC',
     description: '融合家养宠物与新年元素，使用 Kimi、Doubao、Sora 等工具完成。上线微信后综合曝光 29 万+次。',
     type: 'image',
-    url: '../../../assets/images/aigc2.jpg',
+    url: '../../assets/images/aigc2.jpg',
   },
   {
     id: '2',
@@ -29,7 +29,7 @@ const defaultItems: PortfolioItem[] = [
     category: '视频广告',
     description: '独立完成从创意到交付的全流程，古典写意风格，获得甲方满意肯定。',
     type: 'video',
-    url: '../../../assets/videos/亿生帮广告视频.mp4',
+    url: '../../assets/videos/亿生帮广告视频.mp4',
   },
 
   {
@@ -38,7 +38,7 @@ const defaultItems: PortfolioItem[] = [
     category: '摄像',
     description: '"一带一路"十周年主题 MV，担任摄像与现场协调总负责人。',
     type: 'image',
-    url: '../../../assets/images/万里当歌.jpg',
+    url: '../../assets/images/万里当歌.jpg',
     link: 'https://weibo.com/tv/show/1034:4976420208967759?from=old_pc_videoshow',
   },
   {
@@ -47,7 +47,7 @@ const defaultItems: PortfolioItem[] = [
     category: '直播导演',
     description: '孔子研究院直播总导演，负责设备管理、人员调度与应急预案制定。',
     type: 'image',
-    url: '../../../assets/images/彝伦讲堂现场.jpg',
+    url: '../../assets/images/彝伦讲堂现场.jpg',
     link: 'https://mp.weixin.qq.com/s/33zXIX9UQ2DSl1cWWQJHlQ?click_id=12',
   },
 
