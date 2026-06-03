@@ -42,14 +42,13 @@ export default function About() {
             关于我
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[var(--morandi-text)] leading-tight mb-6">
-            用AI重新定义
-            <br />
-            内容创作与运营效率
+            AI是我的创作延伸
           </h2>
           <p className="font-body text-base md:text-lg text-[var(--morandi-text-secondary)] max-w-2xl leading-relaxed">
-            我是庞筱妍，从光电信息科学到数据科学，我始终在探索技术与创意的交汇点。
-            我相信，AI不是替代人的工具，而是放大创造力的杠杆——好的AI产品运营，
-            既要懂技术边界，更要懂用户场景，让AI真正落地为可感知的产品价值。
+            从光电信息科学到数据科学，我一直在探索技术如何放大创意。
+            我深度使用 Kimi、Doubao、Sora 等 AI 工具，构建了从 prompt 工程、AIGC 创作到自动化信息收集的完整工作流。
+            数据背景让我理解 AI 的能力边界，内容创作经验让我知道什么能打动人。
+            对我来说，AI 不是替代思考的工具，而是把想法变成现实的加速器。
           </p>
         </motion.div>
 
@@ -92,8 +91,8 @@ export default function About() {
           className="mt-16 md:mt-24 pt-12 border-t border-[var(--morandi-border)]"
         >
           <blockquote className="font-display text-xl md:text-2xl text-[var(--morandi-text)] italic leading-relaxed max-w-3xl">
-            "习惯以问题识别 → AI方案设计 → 迭代优化的方式推进项目，
-            善于在技术与创意的交叉点寻找产品机会，将AI能力转化为可落地的用户体验。"
+            "习惯以问题识别 → AI 方案设计 → 迭代优化的方式推进创作，
+            在技术与创意的交叉点找到最高效的表达路径，让 AI 真正成为思维的放大器。"
           </blockquote>
         </motion.div>
       </div>
