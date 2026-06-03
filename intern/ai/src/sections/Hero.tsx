@@ -90,16 +90,16 @@ export default function Hero() {
                 width: '100%',
                 height: '100%',
                 overflow: 'visible',
-                filter: `drop-shadow(0 0 ${star.size * 0.7}px rgba(184, 115, 51, 0.75)) drop-shadow(0 0 ${star.size * 1.8}px rgba(184, 115, 51, 0.4))`,
+                filter: `drop-shadow(0 0 ${star.size * 0.8}px rgba(184, 115, 51, 0.8)) drop-shadow(0 0 ${star.size * 2}px rgba(184, 115, 51, 0.45))`,
               }}
             >
-              {/* Four sparkle rays */}
-              <path d="M12 0.5 L13.4 8 L12 9.5 L10.6 8 Z" fill="var(--v1-accent)"/>
-              <path d="M12 23.5 L10.6 16 L12 14.5 L13.4 16 Z" fill="var(--v1-accent)"/>
-              <path d="M0.5 12 L8 10.6 L9.5 12 L8 13.4 Z" fill="var(--v1-accent)"/>
-              <path d="M23.5 12 L16 13.4 L14.5 12 L16 10.6 Z" fill="var(--v1-accent)"/>
-              {/* Center glow dot */}
-              <circle cx="12" cy="12" r="2.2" fill="var(--v1-accent)"/>
+              {/* Four slender sparkle rays — closer to ✨ */}
+              <path d="M12 0 L12.6 9 L12 10.5 L11.4 9 Z" fill="var(--v1-accent)"/>
+              <path d="M12 24 L11.4 15 L12 13.5 L12.6 15 Z" fill="var(--v1-accent)"/>
+              <path d="M0 12 L9 11.4 L10.5 12 L9 12.6 Z" fill="var(--v1-accent)"/>
+              <path d="M24 12 L15 12.6 L13.5 12 L15 11.4 Z" fill="var(--v1-accent)"/>
+              {/* Tiny center diamond */}
+              <path d="M12 10.2 L12.8 12 L12 13.8 L11.2 12 Z" fill="var(--v1-accent)"/>
             </svg>
           </div>
         ))}
