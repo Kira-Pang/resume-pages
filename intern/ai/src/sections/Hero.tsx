@@ -74,19 +74,34 @@ export default function Hero() {
             className="absolute"
             style={{
               left: `${star.left}%`,
-              bottom: '-6px',
+              bottom: '-8px',
               width: `${star.size}px`,
               height: `${star.size}px`,
-              backgroundColor: 'var(--v1-accent)',
-              clipPath: 'polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%)',
-              filter: `drop-shadow(0 0 ${star.size * 1.2}px rgba(184, 115, 51, 0.6)) drop-shadow(0 0 ${star.size * 2.5}px rgba(184, 115, 51, 0.3))`,
               '--start-opacity': star.startOpacity,
               '--float-height': `${star.floatHeight}vh`,
               '--drift': `${star.drift}px`,
               animation: `star-float-up ${star.duration}s linear ${star.delay}s infinite`,
               willChange: 'transform, opacity, filter',
             } as React.CSSProperties}
-          />
+          >
+            <svg
+              viewBox="0 0 24 24"
+              style={{
+                width: '100%',
+                height: '100%',
+                overflow: 'visible',
+                filter: `drop-shadow(0 0 ${star.size * 0.7}px rgba(184, 115, 51, 0.75)) drop-shadow(0 0 ${star.size * 1.8}px rgba(184, 115, 51, 0.4))`,
+              }}
+            >
+              {/* Four sparkle rays */}
+              <path d="M12 0.5 L13.4 8 L12 9.5 L10.6 8 Z" fill="var(--v1-accent)"/>
+              <path d="M12 23.5 L10.6 16 L12 14.5 L13.4 16 Z" fill="var(--v1-accent)"/>
+              <path d="M0.5 12 L8 10.6 L9.5 12 L8 13.4 Z" fill="var(--v1-accent)"/>
+              <path d="M23.5 12 L16 13.4 L14.5 12 L16 10.6 Z" fill="var(--v1-accent)"/>
+              {/* Center glow dot */}
+              <circle cx="12" cy="12" r="2.2" fill="var(--v1-accent)"/>
+            </svg>
+          </div>
         ))}
       </div>
 
