@@ -1,0 +1,169 @@
+/**
+ * @app/.agents/skills/webapp-building/templates/landing-page/index.css
+ * Landing page template global styles.
+ */
+
+/* ============================================================
+   FONT IMPORTS (must be first)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+/* ============================================================
+   BASE IMPORTS
+   ============================================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SMOOTH SCROLL
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   :root VARIABLES  —  V1 Palette (warm white bg + copper accent)
+   ============================================================ */
+@layer base {
+  :root {
+    /* V1 Color System
+       Main bg: warm white (low saturation) #FAF9F7
+       Card bg: pure white #FFFFFF
+       Secondary bg: light gray #FAFAFA
+       Accent: copper #B87333
+       Text primary: near black #1A1A1A
+       Text secondary: mid gray #6B6B6B
+       Border: light gray #E5E5E5
+       Dark section: near black #1A1A1A
+       Dark section text: pure white #FFFFFF
+    */
+
+    --background: 30 14% 97%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 30 14% 97%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 27 52% 46%;
+    --accent-foreground: 30 14% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 27 52% 46%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 30 14% 97%;
+    --sidebar-accent: 0 0% 98%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 27 52% 46%;
+
+    /* ============================================================
+       V1 PALETTE VARS
+       ============================================================ */
+    --font-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+    --font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-accent: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+
+    /* V1 Colors (from reference swatch) */
+    --v1-bg: #FAF9F7;
+    --v1-bg-secondary: #FAFAFA;
+    --v1-bg-card: rgba(255, 255, 255, 0.55);
+    --v1-text: #1A1A1A;
+    --v1-text-secondary: #6B6B6B;
+    --v1-text-muted: #9A9A9A;
+    --v1-accent: #B87333;
+    --v1-accent-hover: #9E6028;
+    --v1-accent-light: rgba(184, 115, 51, 0.12);
+    --v1-border: #E5E5E5;
+    --v1-border-subtle: rgba(229, 229, 229, 0.5);
+    --v1-dark: #1A1A1A;
+    --v1-dark-text: #FFFFFF;
+    --v1-dark-text-secondary: #B0B0B0;
+    --v1-light: #FFFFFF;
+
+    /* Legacy mapping for backwards compatibility */
+    --morandi-bg: var(--v1-bg);
+    --morandi-bg-secondary: var(--v1-bg-secondary);
+    --morandi-bg-card: var(--v1-bg-card);
+    --morandi-text: var(--v1-text);
+    --morandi-text-secondary: var(--v1-text-secondary);
+    --morandi-text-muted: var(--v1-text-muted);
+    --morandi-accent: var(--v1-accent);
+    --morandi-accent-hover: var(--v1-accent-hover);
+    --morandi-accent-light: var(--v1-accent-light);
+    --morandi-border: var(--v1-border);
+    --morandi-border-subtle: var(--v1-border-subtle);
+    --morandi-dark: var(--v1-dark);
+    --morandi-dark-text: var(--v1-dark-text);
+    --morandi-dark-text-secondary: var(--v1-dark-text-secondary);
+    --morandi-light: var(--v1-light);
+
+    /* Extra legacy aliases */
+    --sage-bg: var(--v1-bg);
+    --sage-bg-secondary: var(--v1-bg-secondary);
+    --sage-bg-card: var(--v1-bg-card);
+    --sage-text: var(--v1-text);
+    --sage-text-secondary: var(--v1-text-secondary);
+    --sage-text-muted: var(--v1-text-muted);
+    --sage-accent: var(--v1-accent);
+    --sage-accent-hover: var(--v1-accent-hover);
+    --sage-accent-light: var(--v1-accent-light);
+    --sage-border: var(--v1-border);
+    --sage-border-subtle: var(--v1-border-subtle);
+    --sage-dark: var(--v1-dark);
+    --sage-dark-text: var(--v1-dark-text);
+    --sage-dark-text-secondary: var(--v1-dark-text-secondary);
+    --sage-light: var(--v1-light);
+  }
+}
+
+/* ============================================================
+   TAILWIND BASE OVERRIDES
+   ============================================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[var(--v1-bg)] text-[var(--v1-text)] antialiased;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+@layer base {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

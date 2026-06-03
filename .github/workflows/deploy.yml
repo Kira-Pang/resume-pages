@@ -34,9 +34,9 @@ jobs:
           npm ci
           npm run build
 
-      - name: Install and build baidu-product-operation
+      - name: Install and build ai-page
         run: |
-          cd intern/baidu/product-operation
+          cd intern/ai
           npm ci
           npm run build
 
@@ -44,8 +44,8 @@ jobs:
         run: |
           mkdir -p dist/intern/century-game/ai-video
           cp -r intern/century-game/ai-video/dist/* dist/intern/century-game/ai-video/
-          mkdir -p dist/intern/baidu/product-operation
-          cp -r intern/baidu/product-operation/dist/* dist/intern/baidu/product-operation/
+          mkdir -p dist/intern/ai
+          cp -r intern/ai/dist/* dist/intern/ai/
           cp index.html dist/
           cp -r assets dist/ 2>/dev/null || true
 
