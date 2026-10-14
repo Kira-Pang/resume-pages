@@ -116,7 +116,7 @@ export default function Hero() {
           澳门大学数据科学硕士 · 北京交通大学本科
           <br />
           <span className="font-display text-sm md:text-base text-[var(--morandi-accent)] tracking-wider">
-            AI重度使用者 · AIGC创作学员 · 视频剪辑手 · 荷兰猪饲养员
+            AI重度使用者 · 视频剪辑手 · 荷兰猪饲养员
           </span>
         </motion.p>
 
