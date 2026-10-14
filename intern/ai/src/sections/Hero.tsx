@@ -77,18 +77,6 @@ export default function Hero() {
       </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center">
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6"
-        >
-          <span className="inline-block px-4 py-1.5 text-xs font-body tracking-widest uppercase text-[var(--morandi-text-secondary)] border border-[var(--morandi-border)] rounded-full">
-            AI实习生
-          </span>
-        </motion.div>
-
         {/* Name + Avatar */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

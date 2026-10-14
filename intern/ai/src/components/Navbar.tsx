@@ -48,10 +48,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="font-display text-lg md:text-xl font-semibold tracking-tight text-[var(--morandi-text)]">
-              <span className="text-[var(--morandi-accent)]">
-                AI实习生
-              </span>
-              <span> 庞筱妍简历</span>
+              <span className="text-[var(--morandi-accent)]">庞筱妍</span>
+              <span>简历</span>
             </div>
 
             {/* Desktop Nav */}
