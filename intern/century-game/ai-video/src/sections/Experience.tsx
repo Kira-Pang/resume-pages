@@ -17,7 +17,7 @@ const experiences = [
     period: '2025.9 - 2027.6',
     title: '澳门大学',
     subtitle: '硕士 | 数据科学 - 金融科技',
-    description: 'QS 285，深入学习数据科学与金融科技领域的前沿知识。',
+    description: 'QS 267，深入学习数据科学与金融科技领域的前沿知识。',
   },
   {
     type: 'work',
