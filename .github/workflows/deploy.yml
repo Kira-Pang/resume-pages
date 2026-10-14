@@ -26,13 +26,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: intern/century-game/ai-video/package-lock.json
-
-      - name: Install and build ai-video
-        run: |
-          cd intern/century-game/ai-video
-          npm ci
-          npm run build
+          cache-dependency-path: intern/ai/package-lock.json
 
       - name: Install and build ai-page
         run: |
@@ -42,8 +36,6 @@ jobs:
 
       - name: Prepare dist
         run: |
-          mkdir -p dist/intern/century-game/ai-video
-          cp -r intern/century-game/ai-video/dist/* dist/intern/century-game/ai-video/
           mkdir -p dist/intern/ai
           cp -r intern/ai/dist/* dist/intern/ai/
           cp index.html dist/

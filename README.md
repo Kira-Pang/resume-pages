@@ -6,7 +6,9 @@
 
 | 页面 | 链接 |
 |------|------|
-| 点点互动 AI 实习生 | https://kira-pang.github.io/resume-pages/intern/century-game/ai-video/ |
+| 主页 | https://kira-pang.github.io/resume-pages/ |
+| AI 方向 | https://kira-pang.github.io/resume-pages/intern/ai/ |
+| ~~点点互动 AI 实习生~~ | 已下线（代码保留在 intern/century-game/ai-video/，从部署流程移除） |
 
 ## 技术栈
 
